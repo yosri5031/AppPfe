@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!-- inclusion du fichier css dans ma page twig -->
+<style>{% include 'css/Apropos.css' %}</style>
+<div class="description">
+<br>
+<h2> Evaluation.edu </h2>
+<h3> A propos </h3>
+    <p>  une application web  pour mener des enquêtes  a de retour un  analyse pour les avis  des étudiants
+             sur les qualités des cours et le système d'éducation </p>
+             <ul>
+             <li> L’application offre l’opportunité aux étudiants d’évaluer leurs perceptions des cours.  
+             <li> Les étudiants répondent à des questions bien définies   en attribuant des (*) Etoiles de 1 à 5 suivants leurs degrés d’assimilations.</li>
+             <li> <b>&#8594;</b>L’objectif est de construire des enquêtes avec des indicateurs mesurable et informer les instructeurs du cours de celle-ci</li>
+             <li> Les réponses aux enquêtes seront anonymes et les statistiques de perceptions des cours seront calculés pour les cours.
+             </li>
+             <li>  Un bilan statistique sur les réponses sera envoyé sous forme de rapport d’évaluation aux enseignants concernés.
+             Les enseignants doit connecté avec un login et mot de passe pour voir les analyses.
+             </li>
+             </ul>
+</div>
+
+{% endblock %}
+{% block title %} A propos{% endblock %}

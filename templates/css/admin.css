@@ -1,0 +1,10 @@
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('https://eacea.ec.europa.eu/national-policies/eurydice/sites/default/files/eurydice-images/news-articles/teacher-5694365_1920.png');
+  background-size: cover;
+  background-position: center;
+}

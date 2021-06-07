@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!-- inclusion du fichier css dans ma page twig -->
+<style>{% include 'css/style.css' %}</style>
+
+<div class="containerEnq">
+<form action="{{ path('app_login') }}" method="post" >
+<p> choisie l'année corresponsent</p>
+<select class=form-control>
+{% for periode in periodes %}
+ <option value="annee">{{ periode.annee}}</option>
+{% endfor %}
+</select>
+
+ <p> choisie le semestre corresponsent</p>
+
+<select class=form-control>
+{% for periode in periodes %}
+  <option value="semestre">{{periode.semestre}}</option>
+{% endfor %}
+</select>
+<br>
+<input type="submit" class="btn btn-primary" id="button-1"></button>
+</form>
+</div>
+
+{% endblock %}
+{% block title %} enquetes {% endblock %}

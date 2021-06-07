@@ -1,0 +1,128 @@
+
+body
+{background-image: url(https://wp-media.petersons.com/blog/wp-content/uploads/2019/07/11154102/iStock-1145183123.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;}
+h1
+{font-family: Arial, sans-serif;
+color: #000000;
+background-color: #ffffff;}
+p
+ {font-family: Georgia, serif; 
+font-size: 22px;
+font-style: italic;
+font-weight: normal;
+color: #fdf7f7;
+background-color: #37a9e1;}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(191, 152, 218);
+  color: white;
+  text-align: center;
+}
+.imagefooter {
+width:100px;
+height:25px;
+
+}
+.containerEnq{
+border:#8482db 2px;
+border-style: solid;
+background-color: #fff;
+margin:3% 20% 3%; /*3% top-bottom 5% right-left */
+}
+
+/*service box */
+        .serviceBox{
+          background: linear-gradient(to right,white,blue);
+          font-family: 'Montserrat', sans-serif;
+          text-align: center;
+          padding: 15px 30px 35px;
+          margin: 10px -100px 0 20px;
+          margin-top:35%;
+          border-radius: 0 30px;
+          box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+          position: relative;
+          z-index: 1;
+        }
+      .serviceBox:before{
+          content: "";
+          background: #fff;
+          width: calc(100% - 10px);
+          height: 100%;
+          border-radius: 0 30px 0 30px;
+          box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+          position: absolute;
+          top: -10px;
+          left: 0;
+          z-index: -1;
+      }
+      .serviceBox .service-icon{
+          color: #fff;
+          background: linear-gradient(to right,#1713fb 50%,#ff9901 130%);
+          font-size: 40px;
+          width: 70%;
+          padding: 8px 0 6px;
+          margin: 0 0 35px -30px;
+          border-radius: 0 50px 50px 0;
+          box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.2) inset;
+      }
+      .serviceBox .title{
+          color: #ff9901;
+          font-size: 16px;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin: 0 0 10px;
+      }
+      .serviceBox .title:after{
+          content: '';
+          background-color: #ff9901;
+          height: 2px;
+          width: 60%;
+          margin: 5px auto 0;
+          display: block;
+          clear: both;
+      }
+      .serviceBox .description{
+          color: black;
+          background-color:white;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 23px;
+          text-align: justify;
+          margin: 0 0 25px;
+      }
+      .serviceBox .read-more{
+          color: #999;
+          font-size: 13px;
+          transition: all 0.3s ease 0s;
+      }
+      .serviceBox .read-more i{ font-size: 11px; }
+      .serviceBox .read-more:hover{
+          color: #ff9901;
+          text-decoration: underline;
+      }
+      .serviceBox.green{ background: linear-gradient(to right,#ABED1A,#38AE3E); }
+      .serviceBox.green .service-icon{ background: linear-gradient(to right,#ABED1A 50%,#38AE3E 130%); }
+      .serviceBox.green .title{ color: #38AE3E; }
+      .serviceBox.green .title:after{ background-color: #38AE3E; }
+      .serviceBox.green .read-more:hover{ color: #38AE3E; }
+
+      /* Nous utilisons une poignée de requêtes multimédias (media screen) pour fournir différentes feuilles de styles 
+      à différents appareils,afin de créer des points d'arrêt sensibles pour nos mises en page et interfaces. */
+
+      @media only screen and (max-width:990px){
+          .serviceBox{ margin: 10px 0 40px; }
+      }
+      #box-2{
+        margin-left:35%;
+      }
+      #button-1{
+       margin-left:45%;
+      }
+       
+

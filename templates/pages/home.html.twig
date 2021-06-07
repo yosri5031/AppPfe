@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="evaluation,education,isima,enquetes">
+<meta name="description" content="application web  pour mener des enquêtes  a de retour un  analyse pour les avis  des étudiants sur les qualités des cours et le système d'éducation">
+<!-- service box boostrap link -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+
+{% block body %}
+
+<!-- inclusion du fichier css dans ma page twig -->
+<style>{% include 'css/style.css' %}</style>
+
+
+<!-- [service box bootstrap] presentation box for students -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="serviceBox blue">
+                <div class="service-icon">
+                    <span><i class="fa fa-check" aria-hidden="true"></i></span> <!-- font awesome icons -->
+                </div>
+                <h3 class="title"> étudiants</h3>
+                <p class="description">Veiller visiter la<a href="{{ path('enquetes.index') }}" > <b><u>page des enquêtes</u></b> </a>pour évaluer vos cours et l'environnement d'éducation générale dans votre établissement.</p> 
+
+                <a class="read-more" href="{{ path ('enquetes.index') }}" >go to surveys <br><i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+     
+     <div class="col-md-3 col-sm-6 " id="box-2" >
+     
+            <div class="serviceBox blue">
+                <div class="service-icon">
+                    <span><i class="fa fa-user-o"></i></span> <!-- font awesome icons -->
+                </div>
+                <h3 class="title">enseignants</h3>
+                <p class="description">Vous pouvez visiter l'<a href="{{ path('app_login') }}" ><b><u>espace des enseignants et administrateurs</u></b> </a>pour étudier les bilan statistique concernants vos cours dans l'établissement.</p> 
+
+                <a class="read-more" href="{{ path ('app_login') }}">go to admin page <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="footer">
+<a href="http://www.isima.rnu.tn/">
+  <img class="imagefooter" align ="left" src="https://1.bp.blogspot.com/--JPC2uQ14tQ/YLj0JmX5i9I/AAAAAAAAB0Y/lee4dKrW7jEyp2eW8osg8sDhRStNExgugCLcBGAsYHQ/s0/isima-logo_150x70.jpg" >
+</a>
+© By yosri ben salem ,e: Dr.Mounir Salhi,Carthage Solutions.
+</div>
+{% endblock %}
+{% block title %} Evaluation.edu {% endblock %}
+
+
+
+

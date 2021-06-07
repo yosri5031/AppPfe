@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PeriodeController!{% endblock %}
+
+{% block body %}
+{%for periode in periodes %}
+<h2> {{periode.semestre }}</h2>
+{% endfor %}
+{% endblock %}

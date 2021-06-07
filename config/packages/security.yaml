@@ -1,0 +1,36 @@
+security:
+    encoders:
+        # j'ai hashé mes mots de passe avec la commande
+        # bin/console security:encode-password 'your_plain_password' 'AppBundle\Entity\YourUserClass'
+        #puis écrire "encoded password" dans la base de données
+
+        App\Entity\User:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        users_in_memory: { memory: null }
+         # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: lazy
+            provider: users_in_memory
+
+            
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticationAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+    access_control:
+        # - { path: ^/login, roles: IS_AUTHENTIFICATED_ANONYMOUSLY }
+        #- { path: ^/, roles: ROLE_USER }
