@@ -4,7 +4,7 @@
 <style>{% include 'css/style.css' %}</style>
 
 <div class="containerEnq">
-<form action="{{ path('app_login') }}" method="post" >
+<form action="{{ path('qcm') }}" method="post" >
 <p> choisie l'année corresponsent</p>
 <select class=form-control>
 {% for periode in periodes %}
@@ -20,7 +20,7 @@
 {% endfor %}
 </select>
 <br>
-<input type="submit" class="btn btn-primary" id="button-1"></button>
+<input type="submit" class="btn btn-primary" id="button-1" ></button>
 </form>
 </div>
 

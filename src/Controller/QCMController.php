@@ -10,9 +10,11 @@ class QCMController extends AbstractController
 {
     /**
      * @Route("/qcm", name="qcm")
+     * @return Response
      */
     public function index(): Response
     {
+        
         return $this->render('pages/qcm.html.twig');
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\PeriodesRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ORM\Entity(repositoryClass=PeriodesRepository::class)
@@ -43,6 +45,8 @@ class Periodes
 
         return $this;
     }
+    
+    
 
     public function getAnnee(): ?int
     {
@@ -55,4 +59,5 @@ class Periodes
 
         return $this;
     }
+   
 }

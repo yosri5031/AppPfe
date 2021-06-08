@@ -13,6 +13,14 @@
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
+            <script> 
+            function onlyOne(checkbox) {
+            var checkboxes = document.getElementsByName('check')
+            checkboxes.forEach((item) => {
+            if (item !== checkbox) item.checked = false
+           })
+           }
+            </script>
             {% endblock %}
             
 
