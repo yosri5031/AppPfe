@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class QCMController extends AbstractController
+{
+    /**
+     * @Route("/qcm", name="qcm")
+     */
+    public function index(): Response
+    {
+        return $this->render('pages/qcm.html.twig');
+    }
+}
