@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\DepartmentsRepository;
+use App\Repository\StudentsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=DepartmentsRepository::class)
+ * @ORM\Entity(repositoryClass=StudentsRepository::class)
  */
-class Departments
+class Students
 {
     /**
      * @ORM\Id
@@ -20,7 +20,7 @@ class Departments
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $Name;
 
     public function getId(): ?int
     {
@@ -29,12 +29,12 @@ class Departments
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->Name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $Name): self
     {
-        $this->name = $name;
+        $this->Name = $Name;
 
         return $this;
     }

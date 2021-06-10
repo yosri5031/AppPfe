@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PeriodesRepository;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Departments;
 
 
 /**
@@ -22,6 +23,8 @@ class Periodes
     /**
      * @ORM\Column(type="string", length=255)
      */
+    
+
     private $semestre;
 
     /**

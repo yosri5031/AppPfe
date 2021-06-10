@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Matiers;
+use App\Entity\Matiere;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Matiers|null find($id, $lockMode = null, $lockVersion = null)
- * @method Matiers|null findOneBy(array $criteria, array $orderBy = null)
- * @method Matiers[]    findAll()
- * @method Matiers[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Matiere|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Matiere|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Matiere[]    findAll()
+ * @method Matiere[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MatiersRepository extends ServiceEntityRepository
+class MatiereRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Matiers::class);
+        parent::__construct($registry, Matiere::class);
     }
 
     // /**
-    //  * @return Matiers[] Returns an array of Matiers objects
+    //  * @return Matiere[] Returns an array of Matiere objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class MatiersRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Matiers
+    public function findOneBySomeField($value): ?Matiere
     {
         return $this->createQueryBuilder('m')
             ->andWhere('m.exampleField = :val')

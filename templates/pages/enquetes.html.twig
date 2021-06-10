@@ -3,26 +3,29 @@
 <!-- inclusion du fichier css dans ma page twig -->
 <style>{% include 'css/style.css' %}</style>
 
+
 <div class="containerEnq">
+
+Today was <span id="jour"name="jour">jj</span>/<span id="mois"name="mois">mm</span>/<span id="an"name="an">an</span>
 <form action="{{ path('qcm') }}" method="post" >
-<p> choisie l'année corresponsent</p>
-<select class=form-control>
-{% for periode in periodes %}
- <option value="annee">{{ periode.annee}}</option>
-{% endfor %}
-</select>
+<p id="line1"> mettre votre identifiant : </p>
+<input type="text" value="student-id" id="textbox1" name="textbox1">
 
- <p> choisie le semestre corresponsent</p>
+<input type="submit" class="btn btn-primary" id="button-1" action="{{path('enquetes')}}" >
 
-<select class=form-control>
-{% for periode in periodes %}
-  <option value="semestre">{{periode.semestre}}</option>
+</form> </div>
+{% for student in students %}
+
+{% if ((mois >= 9)&&(mois <= 12%))||(mois == 1)||(mois == 2) %}
+
+{% if ( {{ student.id }} == textbox1 ==  100 ) %}
+
+
+{% endif %}
+{% endif %}
+
 {% endfor %}
-</select>
-<br>
-<input type="submit" class="btn btn-primary" id="button-1" ></button>
-</form>
-</div>
 
 {% endblock %}
+
 {% block title %} enquetes {% endblock %}

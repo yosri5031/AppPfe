@@ -7,830 +7,392 @@
 <!-- inclusion du fichier css dans ma page twig -->
 <style>{% include 'css/qcm.css' %}</style>
 
+
 <!-- source des questions : 
 https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-evaluation-formative.pdf -->
 <div class="qcm-body">
 <form method="post" action="">
 <h2> Questions d’ordre général </h2>
- <p> 1.Avant le début de la session, mon niveau de motivation pour le contenu de ce cours :</p>
+<p> 1.Avant le début de la session, mon niveau de motivation pour le contenu de ce cours :</p>
    
-     <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+   <input type="hidden" name="note" value="" id="note"/>
+  <img src="https://1.bp.blogspot.com/-Y5Vh-iPPZU0/YMC_RXzEDbI/AAAAAAAAB1Q/_gQaGjwUZsoc2JBikv2rOxt2Va7Y0RohgCLcBGAsYHQ/s0/star_clear.gif" id="clear_stars" title="">
+  <img src="https://1.bp.blogspot.com/-iYuyJuFMNaI/YMC_mde4cwI/AAAAAAAAB1Y/TntkCwx8cg0oZ1-KUQYobW4HcNnC4FHxgCLcBGAsYHQ/s0/star_out.gif" id="star_1" class="star"/>
+  <img src="https://1.bp.blogspot.com/-iYuyJuFMNaI/YMC_mde4cwI/AAAAAAAAB1Y/TntkCwx8cg0oZ1-KUQYobW4HcNnC4FHxgCLcBGAsYHQ/s0/star_out.gif" id="star_2" class="star"/>
+  <img src="https://1.bp.blogspot.com/-iYuyJuFMNaI/YMC_mde4cwI/AAAAAAAAB1Y/TntkCwx8cg0oZ1-KUQYobW4HcNnC4FHxgCLcBGAsYHQ/s0/star_out.gif" id="star_3" class="star"/>
+  <img src="https://1.bp.blogspot.com/-iYuyJuFMNaI/YMC_mde4cwI/AAAAAAAAB1Y/TntkCwx8cg0oZ1-KUQYobW4HcNnC4FHxgCLcBGAsYHQ/s0/star_out.gif" id="star_4" class="star"/>
+  <img src="https://1.bp.blogspot.com/-iYuyJuFMNaI/YMC_mde4cwI/AAAAAAAAB1Y/TntkCwx8cg0oZ1-KUQYobW4HcNnC4FHxgCLcBGAsYHQ/s0/star_out.gif" id="star_5" class="star"/>
+  <input type="submit" value="Noter" class="bouton"/>
        
- <p> 2.le moyen d'assistance dans ce cours :</p>
+<p> 2.le moyen d'assistance dans ce cours :</p>
     
- <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+ <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
  <p> 3.Dans ce cours, j’ai investi un niveau d’effort :</p>
     
- <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
- 
+ <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <h2> Planification </h2>
 <p> 4.Le professeur nous demande une charge de travail insufficent(1*) 
     ou plus grande(5*) que ce qui est prévu pour ce cours:</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 5.Le professeur répartit bien le contenu du cours sur l’ensemble de la session (ou sur le nombre de
      semaines prévu pour ce cours):</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 6.Le professeur répartit bien les activités d’évaluation sommative dans la session:</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 
 <h2> Environnement pédagogique </h2>
 <p> 7.Le professeur a présenté clairement le plan de cours au début de la session:</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+ <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 8.Le professeur contribue à créer un climat qui favorise l’apprentissage en classe:</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 9.Le professeur donne ses cours de façon structurée</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 10.Le professeur garde bien le contrôle de son groupe</p>
     
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
-
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <h2>Maîtrise du contenu et clarté</h2>
 <p> 11.Le professeur maîtrise bien le contenu de son cours: <p>
-  <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+  <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 12.Le professeur utilise des exemples pertinents qui facilitent les apprentissages visés:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 13.Le professeur sait rendre compréhensibles des notions techniques, complexes ou abstraites:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 14.Le professeur répond de manière claire et satisfaisante aux questions des étudiants</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <h2>Stratégies pédagogiques</h2>
 <p> 15.Le professeur fait ressortir les points importants du cours lors de son enseignement:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 16.Le professeur utilise des méthodes pédagogiques qui favorisent mes apprentissages</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+   <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 17.Le professeur utilise des méthodes pédagogiques qui soutiennent mon intérêt</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+   <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <h2> Évaluation des apprentissages </h2>
 <p> 18.Le professeur respecte les délais prévus  pour la remise aux étudiants des résultats des
     travaux ou des examens</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 19.Le professeur nous fait régulièrement des commentaires sur nos forces et nos points à améliorer:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 20.Le professeur prévoit des activités d’évaluation sommative (examens, projets, travaux, etc.) qui
      correspondent aux compétences visées par ce cours:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 21.Le professeur formule sur  les travaux corrigés des commentaires qui m’aident à progresser:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <h2> Relation pédagogique, encadrement et disponibilité </h2>
 <p> 22.Le professeur est ouvert aux suggestions des étudiants sur son cours.</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div> 
 <p> 23.Le professeur fait preuve de respect et de considération pour ses étudiants:</p>
-    <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+    <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 <p> 24.Le professeur offre une disponibilité adéquate pour répondre aux besoins d’aide et d’encadrement de
     ses étudiants:</p>
-   <input type="checkbox" name="check" onclick="onlyOne(this)" >
-  <label for="e1"><i class="fa fa-star"></i>
-   </label>
-  
-   <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e2">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-
-    <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e3">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e4">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-       </label>
-     <input type="checkbox" name="check" onclick="onlyOne(this)">
-     <label for="e5">
-         <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        
-       </label>  
+   <div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-star"></i></span>
+   <select class="form-control" id="rate">
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
 </form>
 </div>
+
 {% endblock %}
 {% block title %} questionnaire {% endblock %}
 
