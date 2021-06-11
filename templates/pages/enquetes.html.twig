@@ -7,24 +7,13 @@
 <div class="containerEnq">
 
 Today was <span id="jour"name="jour">jj</span>/<span id="mois"name="mois">mm</span>/<span id="an"name="an">an</span>
-<form action="{{ path('qcm') }}" method="post" >
+<form action="{{ path('enquetes.lbc1') }}" method="post" >
 <p id="line1"> mettre votre identifiant : </p>
 <input type="text" value="student-id" id="textbox1" name="textbox1">
 
-<input type="submit" class="btn btn-primary" id="button-1" action="{{path('enquetes')}}" >
-
-</form> </div>
-{% for student in students %}
-
-{% if ((mois >= 9)&&(mois <= 12%))||(mois == 1)||(mois == 2) %}
-
-{% if ( {{ student.id }} == textbox1 ==  100 ) %}
+<input type="submit" class="btn btn-primary" id="button-1" >
 
 
-{% endif %}
-{% endif %}
-
-{% endfor %}
 
 {% endblock %}
 

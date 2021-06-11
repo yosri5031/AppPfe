@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Matiere;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -18,7 +19,18 @@ class MatiereRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Matiere::class);
     }
-
+    
+    public function findByLBC1():array
+    {
+      return $this-> findVisibleQueryLBC1()
+      ->GetQuery()
+      ->getResult(); 
+    }
+    public function findVisibleQueryLBC1(): QueryBuilder
+    {
+        return $this ->createQueryBuilder('m')
+        -> where ('m.id_student = 104');
+    }
     // /**
     //  * @return Matiere[] Returns an array of Matiere objects
     //  */

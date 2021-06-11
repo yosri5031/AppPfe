@@ -22,10 +22,7 @@ class Department
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_matiere;
+    
 
     public function getId(): ?int
     {
@@ -44,15 +41,5 @@ class Department
         return $this;
     }
 
-    public function getIdMatiere(): ?int
-    {
-        return $this->id_matiere;
-    }
-
-    public function setIdMatiere(int $id_matiere): self
-    {
-        $this->id_matiere = $id_matiere;
-
-        return $this;
-    }
+    
 }

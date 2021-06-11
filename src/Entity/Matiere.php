@@ -32,6 +32,11 @@ class Matiere
      */
     private $id_periode;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $id_student;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Matiere
     public function setIdPeriode(int $id_periode): self
     {
         $this->id_periode = $id_periode;
+
+        return $this;
+    }
+
+    public function getIdStudent(): ?int
+    {
+        return $this->id_student;
+    }
+
+    public function setIdStudent(int $id_student): self
+    {
+        $this->id_student = $id_student;
 
         return $this;
     }
