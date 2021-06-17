@@ -6,393 +6,89 @@
 {% block body %}
 <!-- inclusion du fichier css dans ma page twig -->
 <style>{% include 'css/qcm.css' %}</style>
+<style>
 
+        .rating {
+                display: block;
+                direction: rtl;
+                unicode-bidi: bidi-override;
+                text-align: center;
+        }
+        .rating .star {
+                display: none;
+        }
+        .rating label {
+                color: lightgray;
+                display: inline-block;
+                font-size: 22pt;
+                margin: 0 -2px;
+                transition: transform .15s ease;
+        }
+        .rating label:hover {
+                transform: scale(1.35, 1.35);
+        }
+        .rating label:hover,
+        .rating label:hover ~ label {
+                color: orange;
+        }
+        .rating .star:checked ~ label {
+                color: orange;
+        }
+</style>
 
 <!-- source des questions : 
 https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-evaluation-formative.pdf -->
 <div class="qcm-body">
-<form method="post" action="">
-<h2> Questions d’ordre général </h2>
-<p> 1.Avant le début de la session, mon niveau de motivation pour le contenu de ce cours :</p>
-   
-   <input type="hidden" name="note" value="" id="note"/>
-  
-  <img src="https://1.bp.blogspot.com/-ADgvHPzVebw/YMNoNR7vVkI/AAAAAAAAB2o/uGQ7XKVJ9DotcU-ROcvmP_yPd_-g2UgRACLcBGAsYHQ/s0/star_out_35x35.gif" id="star_1" class="star"/>
-  <img src="https://1.bp.blogspot.com/-ADgvHPzVebw/YMNoNR7vVkI/AAAAAAAAB2o/uGQ7XKVJ9DotcU-ROcvmP_yPd_-g2UgRACLcBGAsYHQ/s0/star_out_35x35.gif" id="star_2" class="star"/>
-  <img src="https://1.bp.blogspot.com/-ADgvHPzVebw/YMNoNR7vVkI/AAAAAAAAB2o/uGQ7XKVJ9DotcU-ROcvmP_yPd_-g2UgRACLcBGAsYHQ/s0/star_out_35x35.gif" id="star_3" class="star"/>
-  <img src="https://1.bp.blogspot.com/-ADgvHPzVebw/YMNoNR7vVkI/AAAAAAAAB2o/uGQ7XKVJ9DotcU-ROcvmP_yPd_-g2UgRACLcBGAsYHQ/s0/star_out_35x35.gif" id="star_4" class="star"/>
-  <img src="https://1.bp.blogspot.com/-ADgvHPzVebw/YMNoNR7vVkI/AAAAAAAAB2o/uGQ7XKVJ9DotcU-ROcvmP_yPd_-g2UgRACLcBGAsYHQ/s0/star_out_35x35.gif" id="star_5" class="star"/>
-  <input type="submit" value="Noter" class="bouton"/>
-       
-<p> 2.le moyen d'assistance dans ce cours :</p>
-    
- <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
- <p> 3.Dans ce cours, j’ai investi un niveau d’effort :</p>
-    
- <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<h2> Planification </h2>
-<p> 4.Le professeur nous demande une charge de travail insufficent(1*) 
-    ou plus grande(5*) que ce qui est prévu pour ce cours:</p>
-    
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 5.Le professeur répartit bien le contenu du cours sur l’ensemble de la session (ou sur le nombre de
-     semaines prévu pour ce cours):</p>
-    
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 6.Le professeur répartit bien les activités d’évaluation sommative dans la session:</p>
-    
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
+<form method="post" action="{{ path('save_qcm',{'id': id , 'stu': stu}) }}">
+    {% for key, val in qcms %}
 
-<h2> Environnement pédagogique </h2>
-<p> 7.Le professeur a présenté clairement le plan de cours au début de la session:</p>
-    
- <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 8.Le professeur contribue à créer un climat qui favorise l’apprentissage en classe:</p>
-    
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 9.Le professeur donne ses cours de façon structurée</p>
-    
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 10.Le professeur garde bien le contrôle de son groupe</p>
-    
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<h2>Maîtrise du contenu et clarté</h2>
-<p> 11.Le professeur maîtrise bien le contenu de son cours: <p>
-  <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 12.Le professeur utilise des exemples pertinents qui facilitent les apprentissages visés:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 13.Le professeur sait rendre compréhensibles des notions techniques, complexes ou abstraites:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 14.Le professeur répond de manière claire et satisfaisante aux questions des étudiants</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<h2>Stratégies pédagogiques</h2>
-<p> 15.Le professeur fait ressortir les points importants du cours lors de son enseignement:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 16.Le professeur utilise des méthodes pédagogiques qui favorisent mes apprentissages</p>
-   <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 17.Le professeur utilise des méthodes pédagogiques qui soutiennent mon intérêt</p>
-   <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<h2> Évaluation des apprentissages </h2>
-<p> 18.Le professeur respecte les délais prévus  pour la remise aux étudiants des résultats des
-    travaux ou des examens</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 19.Le professeur nous fait régulièrement des commentaires sur nos forces et nos points à améliorer:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 20.Le professeur prévoit des activités d’évaluation sommative (examens, projets, travaux, etc.) qui
-     correspondent aux compétences visées par ce cours:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 21.Le professeur formule sur  les travaux corrigés des commentaires qui m’aident à progresser:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<h2> Relation pédagogique, encadrement et disponibilité </h2>
-<p> 22.Le professeur est ouvert aux suggestions des étudiants sur son cours.</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div> 
-<p> 23.Le professeur fait preuve de respect et de considération pour ses étudiants:</p>
-    <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-<p> 24.Le professeur offre une disponibilité adéquate pour répondre aux besoins d’aide et d’encadrement de
-    ses étudiants:</p>
-   <div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-star"></i></span>
-   <select class="form-control" id="rate">
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
+        <h2> {{key}} </h2>
+            {% for qcm in val %}
+        <p> {{ qcm.question.titre }} :</p>
+
+                    <div class="rating">
+                            <input id="radio1{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 5 %} checked="checked" {% endif %} value="5" class="star" />
+                            <label for="radio1{{ qcm.question.id }}">&#9733;</label>
+                            <input id="radio2{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 4 %} checked="checked" {% endif %}  value="4" class="star" />
+                            <label for="radio2{{ qcm.question.id }}">&#9733;</label>
+                            <input id="radio3{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 3 %} checked="checked" {% endif %}  value="3" class="star" />
+                            <label for="radio3{{ qcm.question.id }}">&#9733;</label>
+                            <input id="radio4{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 2 %} checked="checked" {% endif %}  value="2" class="star" />
+                            <label for="radio4{{ qcm.question.id }}">&#9733;</label>
+                            <input id="radio5{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 1 %} checked="checked" {% endif %}  value="1" class="star" />
+                            <label for="radio5{{ qcm.question.id }}">&#9733;</label>
+                    </div>
+
+{#                    <input id="radio1{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 1 %} checked="checked" {% endif %} value="1" class="star" />#}
+{#                    <label for="radio1{{ qcm.question.id }}">&#9733;</label>#}
+{#                    <input id="radio2{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 2 %} checked="checked" {% endif %}  value="2" class="star" />#}
+{#                    <label for="radio2{{ qcm.question.id }}">&#9733;</label>#}
+{#                    <input id="radio3{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 3 %} checked="checked" {% endif %}  value="3" class="star" />#}
+{#                    <label for="radio3{{ qcm.question.id }}">&#9733;</label>#}
+{#                    <input id="radio4{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 4 %} checked="checked" {% endif %}  value="4" class="star" />#}
+{#                    <label for="radio4{{ qcm.question.id }}">&#9733;</label>#}
+{#                    <input id="radio5{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 5 %} checked="checked" {% endif %}  value="5" class="star" />#}
+{#                    <label for="radio5{{ qcm.question.id }}">&#9733;</label>#}
+
+
+                    {#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_1" class="star"/>#}
+{#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_2" class="star"/>#}
+{#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_3" class="star"/>#}
+{#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_4" class="star"/>#}
+{#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_5" class="star"/>#}
+
+            {% endfor %}
+    {% endfor %}
+        <button type="submit"> Enregistrer </button>
 </form>
 </div>
-
+<script>
+        $('.star').on('change', function() {
+                let stars = $(this).val();
+                /* Make an AJAX call to register the rating */
+                console.log(stars);
+        });
+</script>
 {% endblock %}
 {% block title %} questionnaire {% endblock %}
 

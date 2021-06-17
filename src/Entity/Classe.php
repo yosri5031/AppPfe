@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClasseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +23,15 @@ class Classe
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Matiere", mappedBy="Classe")
+     */
+    private $matiere;
+
+    public function __construct()
+    {
+        $this->matiere = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -38,4 +49,43 @@ class Classe
 
         return $this;
     }
-}
+
+    /**
+     * @return Collection|Matiere[]
+     */
+    public function getMatiere(): Collection
+    {
+        return $this->matiere;
+    }
+
+    public function addMatiere(Matiere $matiere): self
+    {
+        if (!$this->matiere->contains($matiere)) {
+            $this->matiere[] = $matiere;
+            $matiere->setClasse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMatiere(Matiere $matiere): self
+    {
+        if ($this->matiere->removeElement($matiere)) {
+            // set the owning side to null (unless already changed)
+            if ($matiere->getClasse() === $this) {
+                $matiere->setClasse(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
+
+    
+    }
+
+   
+
+        
+

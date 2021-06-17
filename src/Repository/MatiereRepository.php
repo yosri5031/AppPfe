@@ -20,24 +20,30 @@ class MatiereRepository extends ServiceEntityRepository
         parent::__construct($registry, Matiere::class);
     }
     
-    public function findByLBC1():array
+    public function findByClasse():array
     {
-      return $this-> findVisibleQueryLBC1()
+      return $this-> findVisibleQueryClasse()
       ->GetQuery()
       ->getResult(); 
     }
-    public function findVisibleQueryLBC1(): QueryBuilder
+    public function findVisibleQueryClasse(Request $request): QueryBuilder
     {
+        $id = $request->get('studientId');
         return $this ->createQueryBuilder('m')
-        -> where ('m.id_student = 104');
+        -> where ('m.classe_id = $id');
     }
-    // /**
+    
+    //  /**
     //  * @return Matiere[] Returns an array of Matiere objects
     //  */
     /*
+    *** check 1 (findByExampleField) *** 
+    *** check 2: https://symfony.com/doc/current/form/direct_submit.html ***
+    *** check3: " page login for student (just id) "+ utilisation des methodes find.. dans le twig
+    
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('m')
+        return $this->createQueryBuilder('m') 
             ->andWhere('m.exampleField = :val')
             ->setParameter('val', $value)
             ->orderBy('m.id', 'ASC')

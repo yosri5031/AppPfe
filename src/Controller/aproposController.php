@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class aproposController extends AbstractController{
    /**
-    *@Route("/apropos", name="apropos.index")
+    *@Route("/Apropos", name="apropos.index")
     *@return Response
     */
     public function index():Response

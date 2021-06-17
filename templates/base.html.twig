@@ -5,6 +5,8 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
  
         {% block stylesheets %}
@@ -62,7 +64,8 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div> -->
-</nav>
+      </div>
+    </nav>
 
         {% block body %} 
         {% endblock %}
@@ -86,8 +89,8 @@
   ///////////
   // Notation
   ///////////
-  var srcIn="https://1.bp.blogspot.com/-tyP_mP8mmTY/YMNocDAVEnI/AAAAAAAAB2s/S_K-brdUvFcKSgYZQ7g-JJq9Fyu-Hj5awCLcBGAsYHQ/s0/star_in_1_35x35.gif"; //image au survol
-  var srcOut="https://1.bp.blogspot.com/-ADgvHPzVebw/YMNoNR7vVkI/AAAAAAAAB2o/uGQ7XKVJ9DotcU-ROcvmP_yPd_-g2UgRACLcBGAsYHQ/s0/star_out_35x35.gif"; // image non survol�e
+  var srcIn="https://1.bp.blogspot.com/-YPitE3Og7jg/YMpEwLhKqiI/AAAAAAAACAw/S304h0UI_QQ4Azghts48Bv89glaHd6IZwCLcBGAsYHQ/s0/starOn.png"; //image au survol
+  var srcOut="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png"; // image non survol�e
 
   // Obtenir id num�rique des �toiles au format star_numero
   function idNum(id)

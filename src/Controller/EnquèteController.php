@@ -1,17 +1,20 @@
 <?php 
 namespace App\Controller;
 
+use App\Entity\Classe;
+use App\Entity\Matiere;
+use App\Entity\Students;
+use App\Repository\ClasseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\StudentsRepository;
-use App\Repository\MatiereRepository;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Students;
-use phpDocumentor\Reflection\Types\Integer;
 
 class EnquèteController extends AbstractController{
-   /**
+ /**
     *@Route("/enquetes", name="enquetes.index")
     *@return Response
     */
@@ -24,18 +27,35 @@ class EnquèteController extends AbstractController{
             
         ]);
     }
+  
     /**
     *@Route("/enquetes-LBC1", name="enquetes.lbc1")
+    
     *@return Response
     */
-    
-    public function findM(MatiereRepository $repository):Response
-    {
-        $matiere = $repository->findByLBC1();
-        return $this->render('pages/lbc1.html.twig', [
-            
-            'matieres' => $matiere
-        ]);
-    }
-    
+
+    public function showSomeMatiere(ClasseRepository $repository, Request $request):Response
+     {
+
+      $em = $this->getDoctrine()->getManager();
+      $id = $request->get('studientId');
+      $studient = $em->getRepository(Students::class)->find($id);
+      if($id == "" or !$studient){
+
+          $flashBag = $this->get('session')->getFlashBag();
+          $flashBag->get('error'); // gets message and clears type
+          $flashBag->set('error', 'Id incorrecte !!');
+
+         return $this->redirectToRoute('enquetes.index');
+      }
+      $classe = $em->getRepository(Classe::class)->find($studient->getClasse()->getId()); //$studient->getClasse();
+      $matiers = $em->getRepository(Matiere::class)->findBy(['classe'=>$classe->getId()]); //$studient->getClasse();
+
+
+     return $this->render('pages/lbc1.html.twig', [
+     'classe'=>$classe,
+     'matieres' => $matiers,
+         'studient'=>$studient
+      ]);
+     }
 }

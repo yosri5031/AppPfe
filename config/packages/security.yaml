@@ -2,7 +2,7 @@ security:
     encoders:
         # j'ai hashé mes mots de passe avec la commande
         # bin/console security:encode-password 'your_plain_password' 'AppBundle\Entity\YourUserClass'
-        #puis écrire "encoded password" dans la base de données
+        # puis écrire "encoded password" dans la base de données
 
         App\Entity\User:
             algorithm: auto
@@ -11,7 +11,7 @@ security:
     providers:
         users_in_memory: { memory: null }
          # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
+        app_user_provider: 
             entity:
                 class: App\Entity\User
                 property: username
@@ -30,7 +30,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: /login
     access_control:
         # - { path: ^/login, roles: IS_AUTHENTIFICATED_ANONYMOUSLY }
         #- { path: ^/, roles: ROLE_USER }
