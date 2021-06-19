@@ -3,7 +3,8 @@ body
 {background-image: url(https://wp-media.petersons.com/blog/wp-content/uploads/2019/07/11154102/iStock-1145183123.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto;}
+    background-size: auto;
+    /*background-attachment: scroll;*/}
 h1
 {font-family: Arial, sans-serif;
 color: #000000;
@@ -33,8 +34,8 @@ height:25px;
 border:#8482db 2px;
 border-style: solid;
 background-color: #fff;
-margin:3% 40% 3%; /*3% top-bottom 5% right-left */
-
+margin:3% 35% 3%; /*3% top-bottom 5% right-left */
+border-radius: 90px;
 }
 
 /*service box */
@@ -122,13 +123,23 @@ margin:3% 40% 3%; /*3% top-bottom 5% right-left */
       #box-2{
         margin-left:35%;
       }
-      #button-1{
-       margin-left:35%;
-       margin-top:5%;
-      }
+     
       #line1{
-          margin-left: 20%;
+          margin-left: 10%;
+          margin-right:10%;
     }
+    #date-s{
+        margin-left:30%;
+    }
+    #studientId{
+        margin-left: 28%;
+        
+    }
+    #button-1{
+        margin-left:40%;
+        margin-top:5%;
+       }
+    
     #textbox1{
         margin-left:20%;
        }

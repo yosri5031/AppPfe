@@ -21,7 +21,7 @@
                             <h3 class="display-4">Espace Admin!</h3>
                             <p class="text-muted mb-4">accée exclusive  pour les enseignants et les administrateurs.</p>
                            
-                            <form action="{{ path('app_login') }}" method="POST"> 
+                            <form action="{{ path('app_login') }}" method="POST">
                             
                             {% if error %}
                               <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

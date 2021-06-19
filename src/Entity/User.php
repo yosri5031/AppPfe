@@ -30,6 +30,8 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+    
+
 
     public function getId(): ?int
     {
@@ -99,4 +101,7 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    
+
 }

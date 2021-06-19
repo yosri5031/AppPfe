@@ -42,7 +42,7 @@ class QCMController extends AbstractController
             $sujet=$qcm->getQuestion()->getSujet();
                 $final[$sujet][]= $qcm;
         }
-
+        return $this->render('pages/qcm.html.twig',['qcms'=>$final,'id'=>$matiere->getId(),'stu'=>$studient->getId()]);
 //        $qb = $this->getDoctrine()->getManager();
 //        $query = $qb->createQueryBuilder('q')
 //            ->select('qs.sujet as sujet')
@@ -57,7 +57,6 @@ class QCMController extends AbstractController
 //            ->getResult()
 //        ;
 
-        return $this->render('pages/qcm.html.twig',['qcms'=>$final,'id'=>$matiere->getId(),'stu'=>$studient->getId()]);
     }
 
 

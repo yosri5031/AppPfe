@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!-- inclusion du fichier css dans ma page twig -->
+<style>{% include 'css/qcmlist.css' %}</style>
+
+<div class="containerEnq">
+    <h4>BienVenue {{ studient.Name }}</h4>
+    <h5>Liste de matières pour la Classe : {{ classe.name }}</h5>
+</div>
+<table class="table">
+ <thead class="thead-light">
+    <tr>
+      <th scope="col">Matière</th>
+      <th scope="col">QCM</th> 
+    </tr>
+    </thead>
+{% for matiere in matieres %}
+<tbody>
+<tr>
+<td> {{ matiere.name }} </td> <td> <a href="{{ path('qcm',{'id': matiere.id, 'idstudent': studient.id}) }}" value="qcm"> QCM </a></td>
+<tr>
+</tbody>
+{% endfor %}
+</table>
+
+{% endblock %}
+{% block title %} List QCM {% endblock %}

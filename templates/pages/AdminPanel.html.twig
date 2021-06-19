@@ -1,1 +1,62 @@
-//TODO TEST PAGE ADMIN PANEL
+{% extends 'base.html.twig'%}
+{% block body %}
+    <style>{% include 'css/panel.css' %}</style>
+<div class="header">
+    <a href="#" id="menu-action">
+        <i class="fa fa-bars"></i>
+        <span>List</span>
+    </a>
+    <div class="logo">
+        Teacher Panel
+    </div>
+</div>
+<div class="sidebar">
+    <ul>
+        <li><a href="#"><i class="fa fa-desktop"></i><span>Panel</span></a></li>
+        <li><a href="#"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
+        <li><a href={{path('app_logout')}}><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
+</div>
+
+<!-- Content -->
+<div class="main">
+    <div class="hipsum">
+        <div class="jumbotron">
+            <h1 id="hello,-world!">Hello, Mr/Mme {{ app.user.username }} <a class="anchorjs-link" href="#hello,-world!"><span class="anchorjs-icon"></span></a></h1>
+        </div>
+        <p><b>Bienvenue Mr/Mme ,vous trouvez dans cette section la liste de vos matières + ses analyses.</b></p>
+        {% for mat in matiers %}
+        <table class="table table-bordered">
+            <tr>
+                <th> matier</th>
+                <th> Analyse</th>
+         </tr>
+            <tr>
+                <td>{{ mat.name }}</td>
+                <td> <a href="#">View</a></td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+</div>
+    <script>
+        $('#menu-action').click(function() {
+            $('.sidebar').toggleClass('active');
+            $('.main').toggleClass('active');
+            $(this).toggleClass('active');
+
+            if ($('.sidebar').hasClass('active')) {
+                $(this).find('i').addClass('fa-close');
+                $(this).find('i').removeClass('fa-bars');
+            } else {
+                $(this).find('i').addClass('fa-bars');
+                $(this).find('i').removeClass('fa-close');
+            }
+        });
+
+        // Add hover feedback on menu
+        $('#menu-action').hover(function() {
+            $('.sidebar').toggleClass('hovered');
+        });
+    </script>
+{% endblock %}

@@ -5,9 +5,10 @@
 
 
 <div class="containerEnq">
-
+<div id="date-s">
 Today was <span id="jour"name="jour">jj</span>/<span id="mois"name="mois">mm</span>/<span id="an"name="an">an</span>
-<form action="{{ path('enquetes.lbc1') }}" method="post" >
+</div>
+<form action="{{ path('qcm.list') }}" method="post" >
     {% for message in app.flashes('error') %}
         <p style="color: red">
             {{ message }}

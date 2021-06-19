@@ -29,7 +29,7 @@ class EnquèteController extends AbstractController{
     }
   
     /**
-    *@Route("/enquetes-LBC1", name="enquetes.lbc1")
+    *@Route("/liste-qcm", name="qcm.list")
     
     *@return Response
     */
@@ -52,7 +52,7 @@ class EnquèteController extends AbstractController{
       $matiers = $em->getRepository(Matiere::class)->findBy(['classe'=>$classe->getId()]); //$studient->getClasse();
 
 
-     return $this->render('pages/lbc1.html.twig', [
+     return $this->render('pages/qcmlist.html.twig', [
      'classe'=>$classe,
      'matieres' => $matiers,
          'studient'=>$studient
