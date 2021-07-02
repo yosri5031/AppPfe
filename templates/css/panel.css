@@ -1,3 +1,9 @@
+#calendar{
+    background-color: #fff;
+    margin-left:5%;
+    margin-top:-0.5%;
+    
+}
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 @font-face {
     font-family: 'Lato';
@@ -252,4 +258,192 @@ p {
     transform-origin: top center;
     -webkit-animation-name: swing;
     animation-name: swing;
+}
+/* media cards css */
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap");
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: Ubuntu;
+}
+
+.row {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.row .col-one {
+    width: 100%;
+}
+.row .col-one .heading {
+    font-size: 2rem;
+    color: #999;
+    text-transform: uppercase;
+    margin: 5rem 0;
+    text-align: center;
+}
+.row .col-thirds {
+    width: 31%;
+}
+
+.service-box {
+    box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+    padding: 3rem 3rem;
+    border-radius: 0.5rem;
+}
+.service-box .service-box-icon {
+    display: block;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.service-box .service-box-icon i {
+    color: #b27ac7;
+    font-size: 3rem;
+}
+.service-box .service-box-title {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #b27ac7;
+    font-size: 1.5rem;
+}
+.service-box .service-box-content {
+    margin: 1.5rem 0;
+    text-align: center;
+    color: #999;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+.service-box .service-box-button {
+    display: block;
+    text-align: center;
+}
+.service-box .service-box-button a {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: #b27ac7;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+}
+.service-box .service-box-button a:hover {
+    box-shadow: -2px -2px 5px white, 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.media-card {
+    box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+}
+.media-card:hover {
+    cursor: pointer;
+    box-shadow: -2px -2px 5px white, 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.media-card .media-card-image-wrapper {
+    position: relative;
+}
+.media-card .media-card-image-wrapper img {
+    width: 100%;
+}
+.media-card .media-card-image-wrapper .media-card-meta-taxonomy {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #b27ac7;
+    color: #f2f2f2;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.media-card .media-card-title {
+    position: relative;
+    padding: 1.5rem 1rem;
+}
+.media-card .media-card-title h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #b27ac7;
+    text-transform: uppercase;
+}
+.media-card .media-card-title .media-card-meta-date {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #999;
+}
+.media-card .media-card-content {
+    padding: 0rem 1rem;
+    color: #999;
+}
+.media-card .media-card-button {
+    padding: 1.5rem 1rem;
+}
+.media-card .media-card-button a {
+    border-radius: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+    font-style: italic;
+    color: #b27ac7;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+.accordion .accordion-item .accordion-title {
+    position: relative;
+    padding: 1rem;
+    color: #b27ac7;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: box-shadow 0.3s ease;
+}
+.accordion .accordion-item .accordion-title:after {
+    content: "+";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.accordion .accordion-item .accordion-title:hover {
+    box-shadow: -2px -2px 5px white, 2px 2px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+.accordion .accordion-item .accordion-title.is-active {
+    box-shadow: -2px -2px 5px white, 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.accordion .accordion-item .accordion-title.is-active:after {
+    content: "−";
+}
+.accordion .accordion-item .accordion-content {
+    display: none;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.semestreStyle{
+    /*position: absolute;*/
+    top: 15px;
+    right: 15px;
+    background: #b27ac7;
+    color: #f2f2f2;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
 }

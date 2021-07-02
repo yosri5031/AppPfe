@@ -1,12 +1,12 @@
 body
-{background-image: url(https://1.bp.blogspot.com/-KZuszegmmvg/YM3NekRmQbI/AAAAAAAACDM/a3Zhmu5HkwAjMrURlytdcCIHtlBJBSsqgCLcBGAsYHQ/s0/grey%2Bscreen.jpg);
+{background-image: url(https://1.bp.blogspot.com/-wZmdYFbSxPs/YNXzyrNtW6I/AAAAAAAACII/H_w43JyD9sYhqM2iuofQGnYZe_jjt9vlQCLcBGAsYHQ/s0/abstract-luxury-blur-grey-color-gradient-background.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
 }
 .containerEnq{
-    border:#8482db 2px;
+    border:#6461f3 2px;
     border-style: solid;
     background-color: #fff;
     margin:3% 35% 3%; /*3% top-bottom 5% right-left */
@@ -19,5 +19,9 @@ body
         margin-left:8%;
     }
     tr {
-        background-color: #dfb9e9;
+        background-color: #8d7bcc73;
+    }
+    #semestre{
+    background-color: #a89494;
+    color: white
     }

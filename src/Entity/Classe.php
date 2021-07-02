@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ClasseRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ClasseRepository", repositoryClass=ClasseRepository::class)
  */
 class Classe
 {
@@ -23,6 +23,12 @@ class Classe
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Department::class)
+     */
+    protected $department;
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Matiere", mappedBy="Classe")
      */
@@ -50,6 +56,9 @@ class Classe
         return $this;
     }
 
+//    public function __toString() {
+//        return $this->classe;
+//    }
     /**
      * @return Collection|Matiere[]
      */
@@ -76,6 +85,18 @@ class Classe
                 $matiere->setClasse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDepartment(): ?Department
+    {
+        return $this->department;
+    }
+
+    public function setDepartment(?Department $department): self
+    {
+        $this->department = $department;
 
         return $this;
     }

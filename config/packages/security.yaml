@@ -6,8 +6,7 @@ security:
 
         App\Entity\User:
             algorithm: auto
-
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+ # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
          # used to reload user from session & other features (e.g. switch_user)
@@ -15,6 +14,9 @@ security:
             entity:
                 class: App\Entity\User
                 property: username
+        # used to reload user from session & other features (e.g. switch_user)
+        # used to reload user from session & other features (e.g. switch_user)
+        # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -23,10 +25,10 @@ security:
             anonymous: lazy
             provider: users_in_memory
 
-            
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticationAuthenticator
+                entry_point: App\Security\LoginFormAuthenticationAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout

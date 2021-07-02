@@ -1,95 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- 
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Evaluation.edu{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+       and uncomment the following Encore helpers to start using Symfony UX #}
+    <!-- deployment of bootstrap 4.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- end deployment -->
+    {% block stylesheets %}
+        {#{{ encore_entry_link_tags('app') }}#}
+        <style>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-            <script>
-            function onlyOne(checkbox) {
-            var checkboxes = document.getElementsByName('check')
-            checkboxes.forEach((item) => {
-            if (item !== checkbox) item.checked = false
-           })
-           }
-            </script>
-           
-            {% endblock %}
-            
+            #nav {
+                margin-left: 25%;
+            }
+        </style>
+    {% endblock %}
 
-        {% block head %} {% endblock %}
-    </head>
-    <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{{ path('home') }} ">Evaluation.edu</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="{{ path('enquetes.index') }}">les enquetes  </a>
-      </li>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="{{ path('app_login') }}">Espace Admin/enseignants</a>
-      </li>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="{{ path('apropos.index') }}">a propos </a>
-      </li>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="{{ path('liens.index') }}">liens importants </a>
-      </li>
-      
-    </ul>
-    <!--
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div> -->
-      </div>
-    </nav>
+    {% endblock %}
 
-        {% block body %} 
-        {% endblock %}
-        <!-- script for bootstrap & DATE -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script>
-             var maintenant=new Date();
-              var jour=maintenant.getDate();
-              var mois=maintenant.getMonth()+1;
-              var an=maintenant.getFullYear();
-              document.getElementById("jour").innerHTML = jour;
-              document.getElementById("mois").innerHTML = mois;
-              document.getElementById("an").innerHTML = an;
-              </script> 
-<!-- script adminPanel -->
-  <script src="http://code.jquery.com/jquery-1.4.2.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>           
-  <script>
-    $('.button-collapse').sideNav();
 
-    $('.collapsible').collapsible();
+    {% block head %} {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ path('home') }} "><img src="https://view.tanta.edu.eg/univ/b559dc06-ff2c-4315-bd58-b8646ffe7d8ba20a9dad-be3.png" height="45px" width="80px"></a>
 
-    $('select').material_select();
-</script>    
-    </body>
+    <div id="nav">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('home') }}">Home </a>
+                </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('app_register') }}">Espace Etudiant </a>
+                        </li>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{ path('app_login') }}">Espace Enseignant</a>
+                                </li>
+                                {#      <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+                                {#    <ul class="navbar-nav mr-auto">#}
+                                {#      <li class="nav-item ">#}
+                                {#        <a class="nav-link" href="{{ path('app_login_chef') }}">Espace Chef de département</a>#}
+                                {#      </li>#}
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="{{ path('apropos.index') }}">A propos </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--
+                                <form class="form-inline my-2 my-lg-0">
+                                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </form>
+                                 </div> -->
+
+</nav>
+
+{% block body %}
+{% endblock %}
+<!-- script for  DATE -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+<script>
+    var maintenant = new Date();
+    var jour = maintenant.getDate();
+    var mois = maintenant.getMonth() + 1;
+    var an = maintenant.getFullYear();
+    document.getElementById("jour").innerHTML = jour;
+    document.getElementById("mois").innerHTML = mois;
+    document.getElementById("an").innerHTML = an;
+</script>
+
+</body>
 </html>

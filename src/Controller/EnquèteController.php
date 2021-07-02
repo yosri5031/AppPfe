@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\Classe;
 use App\Entity\Matiere;
+use App\Entity\Periodes;
 use App\Entity\Students;
 use App\Repository\ClasseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,9 +39,9 @@ class EnquèteController extends AbstractController{
      {
 
       $em = $this->getDoctrine()->getManager();
-      $id = $request->get('studientId');
-      $studient = $em->getRepository(Students::class)->find($id);
-      if($id == "" or !$studient){
+      $id = $request->get('studientId'); $final=[];
+
+      if($id == "" or $id == null){
 
           $flashBag = $this->get('session')->getFlashBag();
           $flashBag->get('error'); // gets message and clears type
@@ -48,14 +49,27 @@ class EnquèteController extends AbstractController{
 
          return $this->redirectToRoute('enquetes.index');
       }
+         $studient = $em->getRepository(Students::class)->find($id);
+         if(!$studient){
+             $flashBag = $this->get('session')->getFlashBag();
+             $flashBag->get('error'); // gets message and clears type
+             $flashBag->set('error', 'Id incorrecte !!');
+
+             return $this->redirectToRoute('enquetes.index');
+         }
       $classe = $em->getRepository(Classe::class)->find($studient->getClasse()->getId()); //$studient->getClasse();
       $matiers = $em->getRepository(Matiere::class)->findBy(['classe'=>$classe->getId()]); //$studient->getClasse();
+         foreach ($matiers as $matier){
+             if($matier->getSemestre()->getCourante() == 1){
+                 $final[$matier->getSemestre()->getSemestre()][]=$matier;
+             }
+         }
 
 
      return $this->render('pages/qcmlist.html.twig', [
      'classe'=>$classe,
-     'matieres' => $matiers,
-         'studient'=>$studient
+     'matieres' => $final,
+         'studient'=>$studient,
       ]);
      }
 }

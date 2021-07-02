@@ -27,10 +27,14 @@ class Matiere
      */
     private $name;
     /**
-    * @ORM\ManyToOne(targetEntity=User::class)
-    */
+ * @ORM\ManyToOne(targetEntity=User::class)
+ */
     protected $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Periodes::class)
+     */
+    protected $semestre;
 
     public function __construct()
     {
@@ -84,10 +88,17 @@ class Matiere
         return $this;
     }
 
+    public function getSemestre(): ?Periodes
+    {
+        return $this->semestre;
+    }
+
+    public function setSemestre(?Periodes $semestre): self
+    {
+        $this->semestre = $semestre;
+
+        return $this;
+    }
 
 
-    
-
-   
-   
 }

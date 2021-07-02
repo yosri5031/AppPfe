@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+<!-- import font awesome v4 icons -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block body %}
+<!-- inclusion du fichier css dans ma page twig -->
+<style>{% include 'css/qcm.css' %}</style>
+<style>
+
+        .rating {
+                display: block;
+                direction: rtl;
+                unicode-bidi: bidi-override;
+                text-align: center;
+        }
+        .rating .star {
+                display: none;
+        }
+        .rating label {
+                color: lightgray;
+                display: inline-block;
+                font-size: 22pt;
+                margin: 0 -2px;
+                transition: transform .15s ease;
+        }
+        .rating label:hover {
+                transform: scale(1.35, 1.35);
+        }
+        .rating label:hover,
+        .rating label:hover ~ label {
+                color: orange;
+        }
+        .rating .star:checked ~ label {
+                color: orange;
+        }
+</style>
+
+<!-- source des questions : 
+https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-evaluation-formative.pdf -->
+        <div class="qcm-body" onload="window.print()">
+                <form method="post" action="">
+                        {% for key, val in questions %}
+{#                                        {% for nb in nombre_reponses %}#}
+                                <h2> {{ key }} </h2>
+                                {% for qcm in val %}
+                                        <p style="font-size:16px">  {{ qcm.titre }} : </p>
+                                        {% for k,v in result %}
+                                                {% if k == qcm.id %}
+                                                        <div class="rating">
+{#                                                                nombre de réponses est : {{ nb }}#}
+                                                                <label for="{{ qcm.id }}">  taux de satisfaction :{{ v }}/5 </label>
+
+                                                        </div>
+                                                {% endif %}
+                                        {% endfor %}
+{#                                {% endfor %}#}
+            {% endfor %}
+    {% endfor %}
+<input type="button" value="imprimer" onclick="window.print();" />
+</form>
+</div>
+<script>
+        $('.star').on('change', function() {
+                let stars = $(this).val();
+                /* Make an AJAX call to register the rating */
+                console.log(stars);
+        });
+</script>
+{% endblock %}
+{% block title %} questionnaire {% endblock %}
+
+

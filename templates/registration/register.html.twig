@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block head %}
+<style>
+    body {
+        background-image: url("https://image.freepik.com/photos-gratuite/s-inscrire-s-inscrire-rejoindre-candidat-s-inscrire-entrez-concept-adhesion_53876-101283.jpg");
+        background-size:cover;
+    }
+    #cont1{
+        margin-top:10%;
+        margin-left:30%;
+    }
+
+    #registration_form_plainPassword{
+        margin-left:0.7%;
+
+    }
+    #cont1 p {
+        margin-right:68%;
+        background-color: #61d2eb;
+        color: #0b1af9;
+        font-size:15px;
+    }
+    #username{
+        color:white;
+        font-size:18px;
+        padding-bottom:3px;
+    }
+    #password{
+        color:white;
+        font-size:18px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <div class="container" id="cont1">
+        <p> veiller saisir username (id de classe ) et mot de passe<br> pour inscrire au système des enquêtes ...</p>
+        <p><form name="registration_form" method="post"></p>
+        <p><h4><div><label for="registration_form_username" class="required" id="username">Username</label><input type="text" id="registration_form_username" name="registration_form[username]" required="required" maxlength="180" /></div></h4></p>
+
+
+        <p><h4><div><label for="registration_form_plainPassword" class="required" id="password">Password</label><input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required" autocomplete="new-password" /></div></h4></p>
+
+
+        <button type="submit" class="btn">Register</button>
+        <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yluiEEqlNRmJpymY0vM6sXjBVDIgfXUfUmlQhJd0CUo" /></form>
+    </div>
+{% endblock %}

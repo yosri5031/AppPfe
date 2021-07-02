@@ -1,0 +1,105 @@
+{% block body %}
+<!--stylesheets-->
+    <style>{% include 'css/panel.css' %} </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- end stylesheets--> 
+
+   <div class="header">
+    <a href="#" id="menu-action"> </a>
+    <div class="logo">
+        Teacher Panel
+    </div>
+    </div>
+<div class="sidebar">
+    <ul>
+        <li><a href="{{path('app_login')}}"><i class="fa fa-desktop"></i><span>Panel</span></a></li>
+        <li><a href="{{path('calendrier')}}"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
+        <li><a href="{{path('app_logout')}}"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
+</div>
+
+<!-- Content -->
+<div class="main">
+    <div class="hipsum">
+        <div class="jumbotron">
+            <h1 id="hello-mr-mme">Hello, Mr/Mme {{ app.user.username }} </h1>
+        </div>
+        <p><b>Bienvenue Mr/Mme ,veuiller choisir l'année et semestre convenable.</b></p>
+    <div class="row">
+{#        <div class="col-one">#}
+{#            <h1 class="heading">Media cards</h1>#}
+{#        </div>#}
+    </div>
+    <div class="row" style="padding-left: 20px;padding-right: 20px">
+        {% for key,val in annees  %}
+
+    <div class="col-thirds">
+        <div class="media-card">
+            <div class="media-card-image-wrapper">
+                <img src="https://1.bp.blogspot.com/-W50kEL-64d8/YNTkVp1_iWI/AAAAAAAACHM/iWPSvH2ZUIQeP26rz9f97ly2xXowcqAeACLcBGAsYHQ/s0/ann%25C3%25A9e.jpg" alt="">
+                <div class="media-card-meta-taxonomy">
+                    Année Scolaire
+                </div>
+            </div>
+            <div class="media-card-title">
+                <h2>{{key}}</h2>
+                <div class="media-card-meta-date">
+                    {% if val[0].courante == 1 %}
+                    Courante
+                    {% endif %}
+                </div>
+            </div>
+            <div class="media-card-content">
+                <div class="row">
+                    <div class="col-6">
+                    <div class="semestreStyle" style="text-align: center">
+                        <a href="{{ path('adminpanel',{'id':id , 'semestre': val[0].id}) }}" style="color: white">
+                            Semestre 1
+                        </a>
+                    </div>
+                    </div>
+                    <div class="col-6">
+                    <div class="semestreStyle" style="text-align: center">
+                        <a href="{{ path('adminpanel',{'id':id , 'semestre': val[1].id}) }}" style="color: white">
+                            Semestre 2
+                        </a>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="media-card-button">
+                <a href="#"></a>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+        <!-- main container -->
+
+    <script>
+        $('#menu-action').click(function() {
+            $('.sidebar').toggleClass('active');
+            $('.main').toggleClass('active');
+            $(this).toggleClass('active');
+
+            if ($('.sidebar').hasClass('active')) {
+                $(this).find('i').addClass('fa-close');
+                $(this).find('i').removeClass('fa-bars');
+            } else {
+                $(this).find('i').addClass('fa-bars');
+                $(this).find('i').removeClass('fa-close');
+            }
+        });
+
+        // Add hover feedback on menu
+        $('#menu-action').hover(function() {
+            $('.sidebar').toggleClass('hovered');
+        });
+    </script>
+
+{% endblock %}

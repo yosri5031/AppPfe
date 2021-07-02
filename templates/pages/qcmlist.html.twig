@@ -14,11 +14,17 @@
       <th scope="col">QCM</th> 
     </tr>
     </thead>
-{% for matiere in matieres %}
+{% for key,val in matieres %}
 <tbody>
 <tr>
-<td> {{ matiere.name }} </td> <td> <a href="{{ path('qcm',{'id': matiere.id, 'idstudent': studient.id}) }}" value="qcm"> QCM </a></td>
+<td id="semestre"> Semestre {{ key }} </td> <td id="semestre"> <a href="" value="qcm"></a></td>
+</tr>
+    {% for matiere in val %}
 <tr>
+<td> {{ matiere.name }} </td> <td> <a href="{{ path('qcm',{'id': matiere.id, 'idstudent': studient.id}) }}" value="qcm"> QCM </a></td>
+</tr>
+{% endfor %}
+
 </tbody>
 {% endfor %}
 </table>

@@ -92,9 +92,9 @@ class LoginFormAuthenticationAuthenticator extends AbstractFormLoginAuthenticato
         }
 
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        return new RedirectResponse($this->urlGenerator->generate('adminpanel'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+//        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
+//        return new RedirectResponse($this->urlGenerator->generate('adminpanel'));
+//        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
 
     }
 

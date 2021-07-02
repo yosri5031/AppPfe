@@ -24,6 +24,7 @@ class QCMController extends AbstractController
         $studient = $em->getRepository(Students::class)->find($idstudent);
         $matiere = $em->getRepository(Matiere::class)->find($id);
 
+
         foreach ($questions as $question){
             $qcm = $em->getRepository(studentqcm::class)->findBy(['matiere'=>$matiere->getId(),'student'=>$studient->getId(),'question'=>$question->getId()]);
           if(!$qcm){
@@ -70,9 +71,9 @@ class QCMController extends AbstractController
         $data = $request->request->all();
         if($data){
             foreach ($data as $k=>$v){
-               $id_question = substr($k, 0, -3);
+                $id_question = substr($k, 0, -3);
                 $qcm = $em->getRepository(studentqcm::class)->findOneBy(['matiere'=>$id,'student'=>$stu,'question'=>$id_question]);
-
+                // i need solution for analyse + departement + periode
                 $qcm->setNote($v[0]);
                 $em->persist($qcm);
                 $em->flush();

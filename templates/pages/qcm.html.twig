@@ -39,9 +39,9 @@
 <!-- source des questions : 
 https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-evaluation-formative.pdf -->
 <div class="qcm-body">
-<form method="post" action="{{ path('save_qcm',{'id': id , 'stu': stu}) }}">
+<form method="post" id="form" action="{{ path('save_qcm',{'id': id , 'stu': stu}) }}">
     {% for key, val in qcms %}
-
+            
         <h2> {{key}} </h2>
             {% for qcm in val %}
         <p> {{ qcm.question.titre }} :</p>
@@ -79,9 +79,10 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
 
             {% endfor %}
     {% endfor %}
-        <button type="submit"> Enregistrer </button>
+        <button type="submit" > Enregistrer </button>
 </form>
 </div>
+
 <script>
         $('.star').on('change', function() {
                 let stars = $(this).val();
