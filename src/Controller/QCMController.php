@@ -6,6 +6,7 @@ use App\Entity\Matiere;
 use App\Entity\Questionnaire;
 use App\Entity\studentqcm;
 use App\Entity\Students;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,29 +22,33 @@ class QCMController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $questions = $em->getRepository(Questionnaire::class)->findAll();
-        $studient = $em->getRepository(Students::class)->find($idstudent);
+//        $studient = $em->getRepository(Students::class)->find($idstudent);
+        $studient = $em->getRepository(User::class)->find($idstudent);
         $matiere = $em->getRepository(Matiere::class)->find($id);
 
 
         foreach ($questions as $question){
-            $qcm = $em->getRepository(studentqcm::class)->findBy(['matiere'=>$matiere->getId(),'student'=>$studient->getId(),'question'=>$question->getId()]);
+            $qcm = $em->getRepository(studentqcm::class)->findBy(['matiere'=>$matiere->getId(),'user'=>$studient->getId(),'question'=>$question->getId()]);
           if(!$qcm){
               $qcmstudient = new studentqcm();
               $qcmstudient->setMatiere($matiere);
-              $qcmstudient->setStudent($studient);
+              $qcmstudient->setUser($studient);
               $qcmstudient->setQuestion($question);
               $em->persist($qcmstudient);
           }
            $em->flush();
         }
 
-        $qcms = $em->getRepository(studentqcm::class)->findBy(['matiere'=>$matiere->getId(),'student'=>$studient->getId()]);
+        $qcms = $em->getRepository(studentqcm::class)->findBy(['matiere'=>$matiere->getId(),'user'=>$studient->getId()]);
         $final=[];
+        $i=0;
         foreach ($qcms as $qcm){
             $sujet=$qcm->getQuestion()->getSujet();
-                $final[$sujet][]= $qcm;
+//            $note=$qcm->getNote();
+
+            $final[$sujet][]= $qcm;
         }
-        return $this->render('pages/qcm.html.twig',['qcms'=>$final,'id'=>$matiere->getId(),'stu'=>$studient->getId()]);
+        return $this->render('pages/qcm.html.twig',['i'=>$i,'qcms'=>$final,'id'=>$matiere->getId(),'stu'=>$studient->getId()]);
 //        $qb = $this->getDoctrine()->getManager();
 //        $query = $qb->createQueryBuilder('q')
 //            ->select('qs.sujet as sujet')
@@ -72,8 +77,7 @@ class QCMController extends AbstractController
         if($data){
             foreach ($data as $k=>$v){
                 $id_question = substr($k, 0, -3);
-                $qcm = $em->getRepository(studentqcm::class)->findOneBy(['matiere'=>$id,'student'=>$stu,'question'=>$id_question]);
-                // i need solution for analyse + departement + periode
+                $qcm = $em->getRepository(studentqcm::class)->findOneBy(['matiere'=>$id,'user'=>$stu,'question'=>$id_question]);
                 $qcm->setNote($v[0]);
                 $em->persist($qcm);
                 $em->flush();

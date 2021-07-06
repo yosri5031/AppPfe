@@ -77,9 +77,26 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
 {#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_4" class="star"/>#}
 {#        <img src="https://1.bp.blogspot.com/-fGfwFXubzZY/YMpEmi6adTI/AAAAAAAACAs/lbU-2NEDt78HEfeIqTVCLyxYbfaXvAEpwCLcBGAsYHQ/s0/starOut.png" id="star_5" class="star"/>#}
 
+{#                    {% if qcm.note != "" %}#}
+{#                            <button type="submit" value="disable" disabled> Enregistrer </button>#}
+
+{#                    {% else %}#}
+{#                            <button type="submit" > Enregistrer </button>#}
+{#                    {% endif %}#}
             {% endfor %}
-    {% endfor %}
-        <button type="submit" > Enregistrer </button>
+            {% endfor %}
+        <!-- desactiver bouton enregistrer des réponses -->
+        {% for val in qcms %}
+                {% for qcm in val %}
+                        {% if qcm.note != "" %}
+                                {%set i = i+1 %}
+                        {% endif %}
+                {% endfor %}
+        {% endfor %}
+
+        <input type="submit" {% if i == 24 %} disabled {% endif %} value="Enregistrer"> </input>
+
+        <!-- desactiver bouton enregistrer des réponses -->
 </form>
 </div>
 

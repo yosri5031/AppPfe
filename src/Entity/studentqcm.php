@@ -23,9 +23,9 @@ class studentqcm
     protected $matiere;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Students::class)
+     * @ORM\ManyToOne(targetEntity=User::class)
      */
-    protected $student;
+    protected $user;
 
     /**
      * @ORM\ManyToOne(targetEntity=Questionnaire::class)
@@ -66,17 +66,7 @@ class studentqcm
         return $this;
     }
 
-    public function getStudent(): ?Students
-    {
-        return $this->student;
-    }
 
-    public function setStudent(?Students $student): self
-    {
-        $this->student = $student;
-
-        return $this;
-    }
 
     public function getQuestion(): ?Questionnaire
     {
@@ -86,6 +76,18 @@ class studentqcm
     public function setQuestion(?Questionnaire $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

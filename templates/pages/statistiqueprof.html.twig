@@ -48,8 +48,9 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
                                         {% for k,v in result %}
                                                 {% if k == qcm.id %}
                                                         <div class="rating">
-{#                                                                nombre de réponses est : {{ nb }}#}
-                                                                <label for="{{ qcm.id }}">  taux de satisfaction :{{ v }}/5 </label>
+{#                                                                nombre de réponses est : {{nombre_reponses }}#}
+                                                                <label for="{{ qcm.id }}">  taux de satisfaction : {{ v }}/5 </label><br>
+                                                                <label for="{{ qcm.id }}">  nombre de réponses : {{nombre_reponses }}</label>
 
                                                         </div>
                                                 {% endif %}

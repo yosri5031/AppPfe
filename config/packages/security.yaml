@@ -22,6 +22,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+
             anonymous: lazy
             provider: users_in_memory
 
@@ -29,10 +30,15 @@ security:
                 authenticators:
                     - App\Security\LoginFormAuthenticationAuthenticator
                 entry_point: App\Security\LoginFormAuthenticationAuthenticator
+
             logout:
                 path: app_logout
                 # where to redirect after logout
                 target: /login
+
     access_control:
-        # - { path: ^/login, roles: IS_AUTHENTIFICATED_ANONYMOUSLY }
-        #- { path: ^/, roles: ROLE_USER }
+
+        - { path: ^/anneescolaire/*, roles: ROLE_ADMIN}
+        - { path: ^/qcmlist/*, roles: ROLE_USER}
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

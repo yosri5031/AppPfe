@@ -17,7 +17,7 @@
 
     }
     #cont1 p {
-        margin-right:68%;
+        margin-right:67.3%;
         background-color: #61d2eb;
         color: #0b1af9;
         font-size:15px;
@@ -31,6 +31,14 @@
         color:white;
         font-size:18px;
     }
+    #classe{
+        color:white;
+        font-size:18px;
+    }
+    #classe_widget{
+        width:725px;
+    }
+
 </style>
 {% endblock %}
 {% block body %}
@@ -39,15 +47,27 @@
     {% endfor %}
 
     <div class="container" id="cont1">
-        <p> veiller saisir username (id de classe ) et mot de passe<br> pour inscrire au système des enquêtes ...</p>
+        <p> veiller saisir username,votre classe et mot de passe<br> pour inscrire au système des enquêtes ...</p>
+
         <p><form name="registration_form" method="post"></p>
-        <p><h4><div><label for="registration_form_username" class="required" id="username">Username</label><input type="text" id="registration_form_username" name="registration_form[username]" required="required" maxlength="180" /></div></h4></p>
+        <p><h4><div><label for="registration_form_username" class="required" id="username">Username</label>
+                {{ form_widget(registrationForm.username) }}
+{#                <input type="text" id="registration_form_username" name="registration_form[username]" required="required" maxlength="180" />#}
+            </div></h4></p>
+        <p><h4><div><label for="registration_form_classe" class="required" id="classe" id="classe">Classe</label>
+                <div id="classe_widget"> {{ form_widget(registrationForm.classe) }} </div>
+            </div></h4></p>
 
-
-        <p><h4><div><label for="registration_form_plainPassword" class="required" id="password">Password</label><input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required" autocomplete="new-password" /></div></h4></p>
+        <p><h4><div><label for="registration_form_plainPassword" class="required" id="password">Password</label>
+                {{ form_widget(registrationForm.password) }}
+{#                <input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required" autocomplete="new-password" />#}
+            </div></h4></p>
 
 
         <button type="submit" class="btn">Register</button>
-        <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yluiEEqlNRmJpymY0vM6sXjBVDIgfXUfUmlQhJd0CUo" /></form>
+        <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yluiEEqlNRmJpymY0vM6sXjBVDIgfXUfUmlQhJd0CUo" />
+        <div id="password_widget"> {{ form_rest(registrationForm) }} </div>
+        <div id="redirect_login"> <h6 style="color:green;">tu es déja inscris?<a href="{{ path('app_login') }}">connexion &#x2192;</a></h6></div>
+        </form>
     </div>
 {% endblock %}

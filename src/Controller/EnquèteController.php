@@ -5,6 +5,7 @@ use App\Entity\Classe;
 use App\Entity\Matiere;
 use App\Entity\Periodes;
 use App\Entity\Students;
+use App\Entity\User;
 use App\Repository\ClasseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,26 +31,26 @@ class EnquèteController extends AbstractController{
     }
   
     /**
-    *@Route("/liste-qcm", name="qcm.list")
+    *@Route("/liste-qcm/{id}", name="qcm.list")
     
     *@return Response
     */
 
-    public function showSomeMatiere(ClasseRepository $repository, Request $request):Response
+    public function showSomeMatiere(ClasseRepository $repository, Request $request,$id):Response
      {
 
       $em = $this->getDoctrine()->getManager();
-      $id = $request->get('studientId'); $final=[];
+//      $id = $request->get('studientId');
+      $final=[];
 
       if($id == "" or $id == null){
-
           $flashBag = $this->get('session')->getFlashBag();
           $flashBag->get('error'); // gets message and clears type
           $flashBag->set('error', 'Id incorrecte !!');
 
          return $this->redirectToRoute('enquetes.index');
       }
-         $studient = $em->getRepository(Students::class)->find($id);
+         $studient = $em->getRepository(User::class)->find($id);
          if(!$studient){
              $flashBag = $this->get('session')->getFlashBag();
              $flashBag->get('error'); // gets message and clears type

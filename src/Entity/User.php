@@ -25,16 +25,22 @@ class User implements UserInterface
      */
     private $username;
 
-   
-
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+    /**
+     * @ORM\ManyToOne(targetEntity=Classe::class)
+     */
+    protected $classe;
 
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
     
-
 
     public function getId(): ?int
     {
@@ -62,13 +68,11 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return [
-            'ROLE_USER'
-        ];
-        
+         return $this->roles;
+
     }
 
-   
+
 
     /**
      * @see UserInterface
@@ -105,6 +109,23 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getClasse(): ?Classe
+    {
+        return $this->classe;
+    }
+
+    public function setClasse(?Classe $classe): self
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
 
 }

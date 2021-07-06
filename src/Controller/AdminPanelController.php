@@ -72,10 +72,7 @@ class AdminPanelController extends AbstractController{
         $em = $this->getDoctrine()->getManager();$final=[];
         $user = $em->getRepository(User::class)->find($id);
         $annes = $em->getRepository(Periodes::class)->findAll();
-        if ($user->getId() > 110) {
 
-            $this->redirectToRoute('enquetes.index');
-        }
         foreach ($annes as $anne){
             $final[$anne->getAnnee()][]=$anne;
         }
