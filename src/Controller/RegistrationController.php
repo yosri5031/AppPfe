@@ -25,7 +25,10 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'succes registration!');
+
 //            dump($user,$request);die();
+
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(

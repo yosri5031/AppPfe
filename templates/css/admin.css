@@ -2,9 +2,15 @@
 .image {
   min-height: 100vh;
 }
-
+/*login image*/
 .bg-image {
   background-image: url('https://eacea.ec.europa.eu/national-policies/eurydice/sites/default/files/eurydice-images/news-articles/teacher-5694365_1920.png');
+  background-size: cover;
+  background-position: center;
+}
+/* inscription image */
+#inscription-image {
+  background-image: url('https://1.bp.blogspot.com/-KHQpUF9Eb6M/YOckg1bDsNI/AAAAAAAACMk/o8s1T-XOB7IesJoDZwgqAiuOvwBx_705QCLcBGAsYHQ/s0/sign-up-register-join-applicant-enroll-enter-membership-concept.jpg');
   background-size: cover;
   background-position: center;
 }
