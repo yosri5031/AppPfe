@@ -15,20 +15,7 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-//        if ($this->isGranted('ROLE_ADMIN')) {
-//            return $this->redirect($this->generateUrl('annee_scolaire', ['id'=>$this->getUser()->getId()]));}
-//        else{
-//            return $this->redirect($this->generateUrl('qcm.list', ['id'=>$this->getUser()->getId()]));
-//        }
 
-
-//         if ($this->getUser()) {
-////             dump($this->getUser()->getClasse());die();
-//
-//        return $this->redirectToRoute('qcm.list', ['id'=>$this->getUser()->getId()]);
-////        return $this->redirectToRoute('annee_scolaire', ['id'=>$this->getUser()->getId()]);
-////        return $this->redirectToRoute('adminpanel', ['id'=>$this->getUser()->getId()]);
-//         }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -46,24 +33,6 @@ class SecurityController extends AbstractController
 
     }
 
-//    public function AdminAction()
-//    {
-//        if(FALSE === $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-//            return $this->redirectToRoute('annee_scolaire', ['id'=>$this->getUser()->getId()]);
-//        }
-//        else{
-//            return $this->render('pages/admin.html.twig');
-//        }
-//    }
-//    public function UserAction()
-//    {
-//        if(FALSE === $this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
-//            return $this->redirectToRoute('qcm.list', ['id'=>$this->getUser()->getId()]);
-//        }
-//        else{
-//            return $this->render('pages/admin.html.twig');
-//        }
-//    }
 
     /**
      * @Route("/logout", name="app_logout")

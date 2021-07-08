@@ -35,9 +35,8 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 target: /login
-
     access_control:
-
+        #les étudiants n'a pas l'accées aux analyses et les enseignants n'ont pas l'autorisation de répondre aux enquètes
         - { path: ^/anneescolaire/*, roles: ROLE_ADMIN}
         - { path: ^/qcmlist/*, roles: ROLE_USER}
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}

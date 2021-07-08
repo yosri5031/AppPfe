@@ -89,13 +89,7 @@ class LoginFormAuthenticationAuthenticator extends AbstractFormLoginAuthenticato
         if ($this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($this->getTargetPath($request->getSession(), $providerKey));
         }
-//        if (in_array("ROLE_ADMIN",$this->getUser()->getRoles()))
-//        { return new RedirectResponse($this->urlGenerator->generate('annee_scolaire',['id'=>$this->getUser()->getId()]));
-//        }
-//        elseif(in_array("ROLE_USER",$this->getUser()->getRoles()))
-//        {return new RedirectResponse($this->urlGenerator->generate('qcm.list',['id'=>$this->getUser()->getId()]));
-//        }
-
+//
 
 //        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
 //        return new RedirectResponse($this->urlGenerator->generate('adminpanel'));

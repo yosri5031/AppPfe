@@ -73,7 +73,6 @@ class User implements UserInterface
     }
 
 
-
     /**
      * @see UserInterface
      */

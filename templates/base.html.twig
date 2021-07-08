@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+
     <title>{% block title %}Evaluation.edu{% endblock %}</title>
-    {# Run `composer require symfony/webpack-encore-bundle`
-       and uncomment the following Encore helpers to start using Symfony UX #}
+
     <!-- deployment of bootstrap 4.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -14,9 +14,12 @@
     {% block stylesheets %}
         {#{{ encore_entry_link_tags('app') }}#}
         <style>
-
+            {# style de navbar#}
             #nav {
                 margin-left: 25%;
+            }
+            #logo {
+                background-color:#383c44;
             }
         </style>
     {% endblock %}
@@ -31,8 +34,10 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ path('home') }} "><img src="https://view.tanta.edu.eg/univ/b559dc06-ff2c-4315-bd58-b8646ffe7d8ba20a9dad-be3.png" height="45px" width="80px"></a>
-
+    <a class="navbar-brand" href="{{ path('home') }} "><img id="logo"
+                                                            src="https://1.bp.blogspot.com/-3dPrM6LLgVo/YOYTxw8_8NI/AAAAAAAACMM/6pn34IdTvxMhgGwWyn5wgXrvZoEmAT3GwCLcBGAsYHQ/s0/logo%2Bfinale%2B80x45.jpg"
+                                                            height="45px" width="85px"></a>
+    {# les différents élements de navbar #}
     <div id="nav">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -49,11 +54,7 @@
                                 <li class="nav-item ">
                                     <a class="nav-link" href="{{ path('app_login') }}">Espace Enseignant</a>
                                 </li>
-                                {#      <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
-                                {#    <ul class="navbar-nav mr-auto">#}
-                                {#      <li class="nav-item ">#}
-                                {#        <a class="nav-link" href="{{ path('app_login_chef') }}">Espace Chef de département</a>#}
-                                {#      </li>#}
+
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item ">
@@ -72,23 +73,6 @@
 
 {% block body %}
 {% endblock %}
-<!-- script for  DATE -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-
-<script>
-    var maintenant = new Date();
-    var jour = maintenant.getDate();
-    var mois = maintenant.getMonth() + 1;
-    var an = maintenant.getFullYear();
-    document.getElementById("jour").innerHTML = jour;
-    document.getElementById("mois").innerHTML = mois;
-    document.getElementById("an").innerHTML = an;
-</script>
 
 </body>
 </html>
