@@ -14,24 +14,36 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-4">Espace Inscription!</h3>
+                            <h3 class="display-5"><p id="titre-signup">Espace Inscription pour les étudiants!</p></h3>
                             <p class="text-muted mb-4">veiller saisir username,votre classe et mot de passe
                                 pour inscrire au système des enquêtes ... </p>
                                 <form name="registration_form" method="post">
-                                        <p><h4><div><label for="registration_form_username" class="required" id="username">Username</label>
-                                                {{ form_widget(registrationForm.username) }}
-{#                                                <input type="text" id="registration_form_username" name="registration_form[username]" required="required" maxlength="180" />#}
-                                            </div></h4></p>
-                                        <p><h4><div><label for="registration_form_classe" class="required" id="classe" id="classe">Classe</label>
-                                                <div id="classe_widget"> {{ form_widget(registrationForm.classe) }} </div>
-                                            </div></h4></p>
+                                    <p>
+                                    <h4>
+                                        <div><label for="registration_form_username" class="required" id="username">Username</label>
+                                          {{ form_widget(registrationForm.username) }}
+                                        </div>
+                                    </h4>
+                                    </p>
+                                    <p>
+                                    <h4>
+                                        <div>
+                                            <label for="registration_form_classe" class="required" id="classe"> Classe</label>
+                                            <div id="classe_widget"> {{ form_widget(registrationForm.classe) }} </div>
+                                        </div>
+                                    </h4>
+                                    </p>
 
-                                        <p><h4><div><label for="registration_form_plainPassword" class="required" id="password">Password</label>
-                                                {{ form_widget(registrationForm.password) }}
-{#                                                <input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required" autocomplete="new-password" />#}
-                                            </div></h4></p>
+                                    <p id=password_widget">
+                                    <h4>
+                                        <div><label for="registration_form_plainPassword" class="required"
+                                                    id="password">Password</label>
+                                            {{ form_widget(registrationForm.password) }}
+                                        </div>
+                                    </h4>
+                                    </p>
 
-                                        <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yluiEEqlNRmJpymY0vM6sXjBVDIgfXUfUmlQhJd0CUo" />
+                                    <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yluiEEqlNRmJpymY0vM6sXjBVDIgfXUfUmlQhJd0CUo" />
                                         <div id="password_widget"> {{ form_rest(registrationForm) }} </div>
                                         <div id="redirect_login"> <h6 style="color:green;">tu es déja inscris?<a href="{{ path('app_login') }}">connexion &#x2192;</a></h6></div>
 

@@ -14,3 +14,12 @@
   background-size: cover;
   background-position: center;
 }
+#titre-signup{
+  color: #2584ff;
+}
+#classe_widget{
+  width:770px;
+}
+#username_widget{
+  width:470px;
+}

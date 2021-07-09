@@ -20,7 +20,7 @@
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h3 class="display-4">Espace Login!</h3>
                             <p class="text-muted mb-4">accée exclusive avec identificateur et mot de passe
-                            pour les étudiants ou les enseignants </p>
+                                pour <b>les étudiants</b> ou <b>les enseignants</b> </p>
 
                             <!-- sign up succes message -->
                             {% for message in app.flashes('success') %}
@@ -53,6 +53,7 @@
                                 </div> -->
                                 
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                                <div id="redirect_login"> <h6 style="color:green;">tu es un étudiant et vous n'avez pas inscris?<a href="{{ path('app_register') }}">inscrire ici</a></h6></div>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Snippet by <a href="https://bootstrapious.com/snippets" class="font-italic text-muted"> 
                                         <u>Boostrapious</u></a></p></div>
 
