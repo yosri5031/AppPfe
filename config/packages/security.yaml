@@ -39,6 +39,9 @@ security:
     access_control:
         #les étudiants n'a pas l'accées aux analyses et les enseignants n'ont pas l'autorisation de répondre aux enquètes
         - { path: ^/anneescolaire/*, roles: ROLE_ADMIN}
-        - { path: ^/qcmlist/*, roles: ROLE_USER}
+        - { path: ^/panel/*, roles: ROLE_ADMIN}
+        - { path: ^/view/*, roles: ROLE_ADMIN}
+        - { path: ^/liste-qcm/*, roles: ROLE_USER}
+        - { path: ^/qcm/*, roles: ROLE_USER}
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
