@@ -15,21 +15,8 @@ use App\Repository\StudentsRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 
-class EnquèteController extends AbstractController{
- /**
-    *@Route("/enquetes", name="enquetes.index")
-    *@return Response
-    */
-    public function index(StudentsRepository $repository):Response
-    {
-        $students = $repository->findAll();
-        
-        return $this->render('pages/enquetes.html.twig', [
-            'students' => $students,
-            
-        ]);
-    }
-  
+class StudentInterfaceController extends AbstractController{
+
     /**
     *@Route("/liste-qcm/{id}", name="qcm.list")
     
