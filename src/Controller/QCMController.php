@@ -24,6 +24,7 @@ class QCMController extends AbstractController
         $questions = $em->getRepository(Questionnaire::class)->findAll();
 //        $studient = $em->getRepository(Students::class)->find($idstudent);
         $studient = $em->getRepository(User::class)->find($idstudent);
+        $matiere = $em->getRepository(Matiere::class)->find($id);
 
 
         foreach ($questions as $question){
