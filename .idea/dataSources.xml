@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="appPfe@localhost" uuid="9bfdcd21-56ba-445d-b2a0-17c00dc7a9ed">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/appPfe</jdbc-url>
+      <driver-properties>
+        <property name="serverTimeZone" value="UTC" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>

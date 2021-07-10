@@ -37,6 +37,7 @@
                 color: orange;
         }
         .progress{
+                border:1px solid #121169;
                 margin-left:15%;
                 margin-right:15%;
         }
@@ -47,27 +48,31 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
         <div class="qcm-body" onload="window.print()">
                 <form method="post" action="">
                         {% for key, val in questions %}
-{#                                        {% for nb in nombre_reponses %}#}
+                                {#                                        {% for nb in nombre_reponses %}#}
                                 <h2> {{ key }} </h2>
                                 {% for qcm in val %}
                                         <p style="font-size:16px">  {{ qcm.titre }} : </p>
                                         {% for k,v in result %}
                                                 {% if k == qcm.id %}
                                                         <div class="rating">
-{#                                                                nombre de réponses est : {{nombre_reponses }}#}
-                                                                <label>  taux de satisfaction  </label>
+                                                                <label> taux de satisfaction </label>
                                                                 <div class="progress">
 
-                                                                        <div class="progress-bar" role="progressbar" style="width: {{100-v*20}}%; text-align:left;background-color:rgba(18,17,105,0.6);color:#f9a307;font-family: 'Arial Black'" aria-valuenow="{{v*20}}" aria-valuemin="0" aria-valuemax="100" >{{v*20}}%</div>
+                                                                        <div class="progress-bar" role="progressbar"
+                                                                             style="width: {{ 100-v*20 }}%; text-align:left;background-color:rgba(18,17,105,0.6);color:#f9a307;font-family: 'Arial Black'"
+                                                                             aria-valuenow="{{ v*20 }}"
+                                                                             aria-valuemin="0"
+                                                                             aria-valuemax="100">{{ v*20 }}%
+                                                                        </div>
                                                                 </div>
-                                                                <label for="{{ qcm.id }}">  nombre de réponses : {{nombre_reponses }}</label>
+                                                                <label for="{{ qcm.id }}"> nombre de réponses
+                                                                        : {{ nombre_reponses }}</label>
 
                                                         </div>
                                                 {% endif %}
                                         {% endfor %}
-{#                                {% endfor %}#}
-            {% endfor %}
-    {% endfor %}
+                                {% endfor %}
+                        {% endfor %}
 <input type="button" value="imprimer" onclick="window.print();" />
 </form>
 </div>
