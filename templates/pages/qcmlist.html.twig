@@ -3,10 +3,10 @@
 <!-- inclusion du fichier css dans ma page twig -->
 <style>{% include 'css/qcmlist.css' %}</style>
 <div id="exit">
-    <a href="{{ path('app_logout') }}">
+    <a href="{{ path('app_logout') }}" id="exit-text">
 
     <img src="https://1.bp.blogspot.com/-FBSLE4k4wEA/YOiJybRPb6I/AAAAAAAACM8/UsRzXHirAtgb954Cti1KHxdkVjSvJeAxwCLcBGAsYHQ/s0/exit.png"
-         width="40px" height="40px">exit
+         width="60px" height="60px"> exit
     </a>
 
 </div>
@@ -28,7 +28,7 @@
 </tr>
     {% for matiere in val %}
 <tr>
-<td> {{ matiere.name }} </td> <td> <a href="{{ path('qcm',{'id': matiere.id, 'idstudent': studient.id}) }}" value="qcm"> QCM </a></td>
+<td id="matiere-font"> {{ matiere.name }} </td> <td id="qcm-link"> <a href="{{ path('qcm',{'id': matiere.id, 'idstudent': studient.id}) }}" value="qcm"> QCM </a></td>
 </tr>
 {% endfor %}
 

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"cin"}, message="There is already an account with this cin")
+ * @UniqueEntity(fields={"cin"}, message="password or cin invalid")
  */
 class User implements UserInterface
 {

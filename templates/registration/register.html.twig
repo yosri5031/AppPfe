@@ -2,12 +2,12 @@
 {% block body %}
     <!-- inclusion du fichier css dans ma page twig -->
     <style>{% include 'css/admin.css' %}</style>
-    <div class="row no-gutter">
+    <div class="row no-gutter" id="sign-up">
         <!-- The image half -->
         <div class="col-md-6 d-none d-md-flex " id="inscription-image"> </div>
         <!-- The content half -->
         <div class="col-md-6 bg-light">
-            <div class="login d-flex align-items-center py-5">
+            <div class="login d-flex align-items-center p-2">
 
                 <!-- second half content-->
 
@@ -15,9 +15,16 @@
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h3 class="display-5"><p id="titre-signup">Espace Inscription pour les étudiants!</p></h3>
-                            <p class="text-muted mb-4">veiller saisir username,votre classe et mot de passe
-                                pour inscrire au système des enquêtes ... </p>
+
                                 <form name="registration_form" method="post">
+                                      {%  for error in errors %}
+                                          <div class="alert alert-danger" id="erruer" style="color:red; font-size:18px;"> {{ error }} </div>
+                                          <script >
+                                              temp=document.getElementById('erruer');
+                                              setTimeout('temp.style.display="none"',5000);
+                                          </script>
+                                    {% endfor %}
+
                                     <p>
                                     <h4>
                                         <div><label for="registration_form_username" class="required" id="username">Username</label>
@@ -46,6 +53,7 @@
                                         <div><label for="registration_form_plainPassword" class="required"
                                                     id="password">Password</label>
                                             {{ form_widget(registrationForm.password) }}
+                                             <p id="password-cond" > password must be atleast 6 characters </p>
                                         </div>
                                     </h4>
                                     </p>

@@ -18,7 +18,7 @@
                 display: none;
         }
         .rating label {
-                color: lightgray;
+                color: #ffffff;
                 display: inline-block;
                 font-size: 22pt;
                 margin: 0 -2px;
@@ -42,9 +42,9 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
 <form method="post" id="form" action="{{ path('save_qcm',{'id': id , 'stu': stu}) }}">
     {% for key, val in qcms %}
             
-        <h2> {{key}} </h2>
+        <h2 id="sujet"> {{key}} </h2>
             {% for qcm in val %}
-        <p> {{ qcm.question.titre }} :</p>
+        <h5 style="font-size:16px" id="titre"> {{ qcm.question.titre }} :</h5>
 
                     <div class="rating">
                             <input id="radio1{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 5 %} checked="checked" {% endif %} value="5" class="star" />
@@ -58,7 +58,7 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
                             <input id="radio5{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}qes[]" {% if qcm.note == 1 %} checked="checked" {% endif %}  value="1" class="star" />
                             <label for="radio5{{ qcm.question.id }}">&#9733;</label>
                     </div>
-
+                    <br>
 {#                    <input id="radio1{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 1 %} checked="checked" {% endif %} value="1" class="star" />#}
 {#                    <label for="radio1{{ qcm.question.id }}">&#9733;</label>#}
 {#                    <input id="radio2{{ qcm.question.id }}" type="checkbox" name="{{ qcm.question.id }}" {% if qcm.note == 2 %} checked="checked" {% endif %}  value="2" class="star" />#}
@@ -94,7 +94,7 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
                 {% endfor %}
         {% endfor %}
 
-        <input type="submit" {% if i == 24 %} disabled {% endif %} value="Enregistrer"> </input>
+        <input type="submit" class="myButton" {% if i == 24 %} disabled {% endif %} value="Enregistrer"> </input>
 
         <!-- desactiver bouton enregistrer des réponses -->
 </form>

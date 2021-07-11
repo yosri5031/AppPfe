@@ -2,14 +2,51 @@ body {
     background-image: url(https://1.bp.blogspot.com/-ABEaMAbM4tk/YOIWLVuKWZI/AAAAAAAACLg/4UE-iagGGBw5J3gAlhLOqDZfU2Hjs5i2QCLcBGAsYHQ/s0/page%2Banalyse.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 1700px 4000px;
+    background-size: 1700px 4200px;
 }
 
 .qcm-body {
+    border:2px solid #732570;
     margin:5% 25% 5%;
-    background: rgb(159, 124, 189);color:#FFF;
+    background: rgba(227, 227, 227, 0.93);color: #000000;
+}
+/* titre questions */
+#titre {
+    margin-left:2%;
+}
+/* sujet questions */
+#sujet {
+    margin-left:1%;
 }
 /*imported css code for review box */
+/* code generated online for buttons */
+.myButton {
+    margin-left: 38%;
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:19px;
+    padding:5px 33px;
+    margin-top:1%;
+    margin-bottom:1%;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #283966;
+}
+.myButton:hover {
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+    background-color:#476e9e;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+/* button */
 #feedback {
     max-width: 60%;
     width: 50%;

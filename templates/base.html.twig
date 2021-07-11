@@ -33,34 +33,64 @@
     {% block head %} {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ path('home') }} "><img id="logo"
-                                                            src="https://1.bp.blogspot.com/-F_5-hvj2wpQ/YOiceE4DO2I/AAAAAAAACNM/3Ulq2nyJX5UQp-l8eA9azVkRxsFMzUB0gCLcBGAsYHQ/s0/logo%2Bphotopea.jpg"
-                                                            height="45px" width="85px"></a>
+
     {# les différents élements de navbar #}
-    <div id="nav">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+
+    <a class="navbar-brand" href="{{ path('home') }} "><img id="logo"
+                                                                src="https://1.bp.blogspot.com/-mOh2OdbaJMU/YOtwLHqasCI/AAAAAAAACNw/IuWx9KC4VJ8uYUoMPRyvBEN7v5STpqEoQCLcBGAsYHQ/s0/logo%2Bbleu.jpg"
+                                                                height="45px" width="85px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ path('home') }}">Home </a>
-                </li>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ path('app_register') }}">Espace Etudiant </a>
-                        </li>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="{{ path('app_login') }}">Espace Enseignant</a>
-                                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
+                    </li>
 
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item ">
-                                            <a class="nav-link" href="{{ path('apropos.index') }}">A propos </a>
-                                        </li>
-                                    </ul>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('app_login') }}">Login <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('app_register') }}">Inscription <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('apropos.index') }}">A propos <span class="sr-only">(current)</span></a>
+                </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+        <!--/.Navbar blue-->
+        <!--Navbar -->
+{#        <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#            <ul class="navbar-nav mr-auto">#}
+{#                <li class="nav-item ">#}
+{#                    <a class="nav-link" href="{{ path('home') }}">Home </a>#}
+{#                </li>#}
+{#                <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                    <ul class="navbar-nav mr-auto">#}
+{#                        <li class="nav-item ">#}
+{#                            <a class="nav-link" href="{{ path('app_register') }}">Espace Etudiant </a>#}
+{#                        </li>#}
+{#                        <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                            <ul class="navbar-nav mr-auto">#}
+{#                                <li class="nav-item ">#}
+{#                                    <a class="nav-link" href="{{ path('app_login') }}">Espace Enseignant</a>#}
+{#                                </li>#}
+
+{#                                <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                                    <ul class="navbar-nav mr-auto">#}
+{#                                        <li class="nav-item ">#}
+{#                                            <a class="nav-link" href="{{ path('apropos.index') }}">A propos </a>#}
+{#                                        </li>#}
+{#                                    </ul>#}
                                 </div>
                                 <!--
                                 <form class="form-inline my-2 my-lg-0">

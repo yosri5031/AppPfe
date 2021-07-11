@@ -23,8 +23,17 @@ class RegistrationFormType extends AbstractType
             ->add('username',null,['required' => true])
             ->add('cin',null,[
                 'required' => true,
+                'constraints' => [
 
+                    new Assert\Length([
+                        'min' => 8,
+                        'minMessage' => "password or cin invalid",
+                        'max' => 8,
+                        'maxMessage' => "password or cin invalid",
+                    ]),
+                ],
             ])
+
             ->add('classe', EntityType::class, array(
                 'class' => Classe::class,
                 'attr' => ['class' => 'form-control w-50'], //afficher un liste
@@ -46,9 +55,8 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Assert\Length([
                             'min' => 6,
-                            'minMessage' => "Le mot de passe doit étre au moins 6 characters.",
-                            'max' => 255,
-                            'maxMessage' => "maximum 255 characters.",
+                            'minMessage' => "password or cin invalid",
+
                         ]),
                 ],
             ])

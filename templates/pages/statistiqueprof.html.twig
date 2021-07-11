@@ -37,7 +37,7 @@
                 color: orange;
         }
         .progress{
-                border:1px solid #121169;
+                border:2px solid #121169;
                 margin-left:15%;
                 margin-right:15%;
         }
@@ -49,23 +49,23 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
                 <form method="post" action="">
                         {% for key, val in questions %}
                                 {#                                        {% for nb in nombre_reponses %}#}
-                                <h2> {{ key }} </h2>
+                                <h2 id="sujet"> {{ key }} </h2>
                                 {% for qcm in val %}
-                                        <p style="font-size:16px">  {{ qcm.titre }} : </p>
+                                        <h4 style="font-size:16px" id="titre">  {{ qcm.titre }} : </h4>
                                         {% for k,v in result %}
                                                 {% if k == qcm.id %}
                                                         <div class="rating">
-                                                                <label> taux de satisfaction </label>
+                                                                <label style="color:black;"> taux de satisfaction </label>
                                                                 <div class="progress">
 
                                                                         <div class="progress-bar" role="progressbar"
-                                                                             style="width: {{ 100-v*20 }}%; text-align:left;background-color:rgba(18,17,105,0.6);color:#f9a307;font-family: 'Arial Black'"
+                                                                             style="width: {{ 100-v*20 }}%; text-align:left;background-color:rgba(18,17,105,0.6);color:rgb(255,153,9);font-family: 'Arial Black'"
                                                                              aria-valuenow="{{ v*20 }}"
                                                                              aria-valuemin="0"
                                                                              aria-valuemax="100">{{ v*20 }}%
                                                                         </div>
                                                                 </div>
-                                                                <label for="{{ qcm.id }}"> nombre de réponses
+                                                                <label style="color:black;" for="{{ qcm.id }}"> nombre de réponses
                                                                         : {{ nombre_reponses }}</label>
 
                                                         </div>
@@ -73,7 +73,7 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
                                         {% endfor %}
                                 {% endfor %}
                         {% endfor %}
-<input type="button" value="imprimer" onclick="window.print();" />
+<input type="button" class="myButton" value="imprimer" onclick="window.print();" />
 </form>
 </div>
 <script>

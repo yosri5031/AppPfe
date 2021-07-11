@@ -1,14 +1,22 @@
 
 body {
+    /*background-image: url("https://www.scet-tunisie.com/sites/default/files/projet/images/xisi-top-img.jpg.pagespeed.ic.teMW8Z_CN0.jpg");*/
+    background-image: url("https://lh3.googleusercontent.com/proxy/C7O4Dr_HVJ5M0hawtlJgvuWoNzh5951ENtX8GIDla-bzRxkPRvJuESlX5qmm1szuu32hfsxp35PuafERU9vjufIf");
+    /*background-image: url("https://image.freepik.com/free-vector/overlapping-shapes-background-design_23-2148647100.jpg");*/
+    /*background-image:url(https://1.bp.blogspot.com/-qM5ukF7Pmgc/YNXswnJML6I/AAAAAAAACH4/WpDjl-gu3GI-HXpKZ5ELz1LlfSgWboyowCLcBGAsYHQ/s0/images-graduates-are-celebrating-graduation-put-hand-up.jpg);*/
+    background-color:rgb(82,151,202);
 
-    background-image:url(https://1.bp.blogspot.com/-qM5ukF7Pmgc/YNXswnJML6I/AAAAAAAACH4/WpDjl-gu3GI-HXpKZ5ELz1LlfSgWboyowCLcBGAsYHQ/s0/images-graduates-are-celebrating-graduation-put-hand-up.jpg);
+
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 1820px 780px;
+    background-size: 1520px 780px;
     background-attachment: scroll;}
 h1
 {font-family: Arial, sans-serif;
 color: #000000;
+}
+h3 {
+    padding-top:12%;
 }
 p
  {font-family: Georgia, serif; 
@@ -130,9 +138,11 @@ border-radius: 90px;
 }
 #row1{
     margin-left:1%;
+
 }
 #row2{
-    margin-left:11%;
+    margin-left:28%;
+
 
 }
 #text-teacher{
@@ -145,23 +155,27 @@ border-radius: 90px;
 }
 #text-teacher a{
     /*color: #750000;*/
-    font-size:13px;
+    font-size:11px;
 }
 #bouton_surveys {
     width: 50px;
-    height: 45px;
+    height: 10px;
     margin-left:-2%;
     background-color:white;
 
 }
 #bouton_surveys i {
-    font-size:12px;
+    margin-bottom:18%;
+    font-size:20px;
+    width:40px;
+    border:1px black solid;
+    background-color: #85e9ff;
 }
 #bouton_surveys p {
     font-size:11px;
     margin-left:-8px;
     color:white;
 }
-/* content part 2 */
+
 
 

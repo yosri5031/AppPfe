@@ -1,5 +1,6 @@
-body
-{background-image: url(https://1.bp.blogspot.com/-wZmdYFbSxPs/YNXzyrNtW6I/AAAAAAAACII/H_w43JyD9sYhqM2iuofQGnYZe_jjt9vlQCLcBGAsYHQ/s0/abstract-luxury-blur-grey-color-gradient-background.jpg);
+body{
+/*{background-image: url(https://image.freepik.com/free-vector/gradient-geometric-background_23-2148824099.jpg);*/
+    background-color: #bbbbbb;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -9,7 +10,7 @@ body
     border:#6461f3 2px;
     border-style: solid;
     background-color: #fff;
-    margin:3% 35% 3%; /*3% top-bottom 5% right-left */
+    margin:0 35% 3%; /X on top, Y on sides, Z on bottom */
     border-radius: 90px;
     }
     h4{
@@ -18,10 +19,31 @@ body
     h5{
         margin-left:12%;
     }
+    .table {
+        width:1050px;
+        margin-left:11%;
+
+    }
     tr {
-        background-color: #8d7bcc73;
+        background-color: rgba(44, 29, 242, 0.51);
+    }
+    #matiere-font {
+        font-size:18px;
     }
     #semestre{
-    background-color: #a89494;
+    background-color: #a8514e;
     color: white
+    }
+    #qcm-link{
+        font-family: "Elephant";
+
+    }
+    a {
+        color: #080c75;
+    }
+    #exit{
+        margin-left:91%;
+    }
+    #exit-text{
+        font-size:26px;
     }

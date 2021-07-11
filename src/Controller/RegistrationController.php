@@ -28,6 +28,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->addFlash('success', 'succes registration!');
 
 //            dump($user,$request);die();
@@ -49,13 +50,23 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
+        $errors = array();
+        foreach ($form->getErrors(true, true) as $error) {
+
+            $errors[0] = $error->getMessage();
+        }
 
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'errors'=>$errors
+
 
 
         ]);
     }
+
+
+
 
 }

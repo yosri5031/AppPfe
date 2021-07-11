@@ -2,6 +2,9 @@
 .image {
   min-height: 100vh;
 }
+#sign-up{
+  height:500px;
+}
 /*login image*/
 .bg-image {
   background-image: url('https://eacea.ec.europa.eu/national-policies/eurydice/sites/default/files/eurydice-images/news-articles/teacher-5694365_1920.png');
@@ -18,8 +21,21 @@
   color: #2584ff;
 }
 #classe_widget{
-  width:770px;
+  width:555px;
 }
 #username_widget{
   width:470px;
+}
+#username {
+  font-size:22px;
+}
+#cin{
+  margin-right:66px;
+}
+#erruer{
+  width:380px;
+}
+#password-cond{
+  font-size:11px;
+  color:red;
 }
