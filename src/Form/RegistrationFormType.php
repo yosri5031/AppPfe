@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class RegistrationFormType extends AbstractType
 {
@@ -20,14 +21,17 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username',null,['required' => true])
-//            ->add('classe')
+            ->add('cin',null,[
+                'required' => true,
+
+            ])
             ->add('classe', EntityType::class, array(
                 'class' => Classe::class,
-                'attr' => ['class' => 'form-control w-50'],
-                'choice_label' => 'name',
-                'choice_value' => 'id',
-                'required' => true,
-                'multiple' => false,
+                'attr' => ['class' => 'form-control w-50'], //afficher un liste
+                'choice_label' => 'name', //afficher les noms de classe
+                'choice_value' => 'id',   //engistrer l'id du classe
+                'required' => true,       //obligatoire
+                'multiple' => false,      //un seul choix
 
             ))
             ->add('password', PasswordType::class, [
@@ -40,13 +44,12 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Please enter a password',
                     ]),
-                    new Length([
-
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
+                    new Assert\Length([
+                            'min' => 6,
+                            'minMessage' => "Le mot de passe doit étre au moins 6 characters.",
+                            'max' => 255,
+                            'maxMessage' => "maximum 255 characters.",
+                        ]),
                 ],
             ])
         ;

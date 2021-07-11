@@ -6,10 +6,12 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
+ * @UniqueEntity(fields={"cin"}, message="There is already an account with this cin")
  */
 class User implements UserInterface
 {
@@ -21,13 +23,15 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180)
      */
     private $username;
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min=6)
+
      */
     private $password;
     /**
@@ -40,6 +44,11 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    /**
+     * @ORM\Column(name="cin", type="string", length=255, nullable=true, unique=true)
+     */
+    private $cin;
     
 
     public function getId(): ?int
@@ -71,7 +80,6 @@ class User implements UserInterface
          return $this->roles;
 
     }
-
 
     /**
      * @see UserInterface
@@ -126,5 +134,19 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getCin(): ?string
+    {
+        return $this->cin;
+    }
+
+    public function setCin(?string $cin): self
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+
 
 }
