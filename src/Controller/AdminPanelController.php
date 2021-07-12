@@ -88,8 +88,9 @@ class AdminPanelController extends AbstractController{
         $matiere = $em->getRepository(Matiere::class)->find($id);
         $notes = $em->getRepository(studentqcm::class)->findBy(['matiere' => $id]);
         $questionss = $em->getRepository(Questionnaire::class)->findAll();
-        $nbr_eleves =count( $em->getRepository(Students::class)->findBy(['classe' => $matiere->getClasse()]));
-
+        $nbr_eleves =count( $em->getRepository(User::class)->findBy(['classe' => $matiere->getClasse()]));
+        $classe = $matiere->getClasse();
+        $semestre=$matiere->getSemestre();
         $questions=[];$final=[];$qes=[];
 
         foreach ($notes as $note){
@@ -107,7 +108,8 @@ class AdminPanelController extends AbstractController{
         }
 
 //        dump($qes,$final,$nbr_eleves,$questions);die();
-        return $this->render('pages/statistiqueprof.html.twig',['questions'=> $qes,'nombre_reponses'=>$nbr_eleves,'result'=>$final]);
+        return $this->render('pages/statistiqueprof.html.twig',
+            ["classe"=>$classe,"periode"=>$semestre,"matiere"=>$matiere,'questions'=> $qes,'nombre_reponses'=>$nbr_eleves,'result'=>$final]);
     }
 }
 

@@ -1,6 +1,6 @@
 body{
-/*{background-image: url(https://image.freepik.com/free-vector/gradient-geometric-background_23-2148824099.jpg);*/
-    background-color: #bbbbbb;
+background-image: url(https://1.bp.blogspot.com/-wZmdYFbSxPs/YNXzyrNtW6I/AAAAAAAACII/H_w43JyD9sYhqM2iuofQGnYZe_jjt9vlQCLcBGAsYHQ/s0/abstract-luxury-blur-grey-color-gradient-background.jpg);
+/*    background-color: #bbbbbb;*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -28,7 +28,7 @@ body{
         background-color: rgba(44, 29, 242, 0.51);
     }
     #matiere-font {
-        font-size:18px;
+        font-size:20px;
     }
     #semestre{
     background-color: #a8514e;

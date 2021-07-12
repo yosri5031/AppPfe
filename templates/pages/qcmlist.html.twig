@@ -11,8 +11,8 @@
 
 </div>
 <div class="containerEnq">
-    <h4>BienVenue {{ studient.username }}</h4>
-    <h5>Liste de matières pour la Classe : {{ classe.name }}</h5>
+    <h4>Bienvenue {{ studient.username }}</h4>
+    <h5>Liste de matières pour la classe : {{ classe.name }}</h5>
 </div>
 <table class="table">
  <thead class="thead-light">
@@ -24,7 +24,7 @@
 {% for key,val in matieres %}
 <tbody>
 <tr>
-<td id="semestre"> Semestre {{ key }} </td> <td id="semestre"> <a href="" value="qcm"></a></td>
+<td id="semestre">  {{ key }} </td> <td id="semestre"> <a href="" value="qcm"></a></td>
 </tr>
     {% for matiere in val %}
 <tr>

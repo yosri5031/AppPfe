@@ -36,6 +36,7 @@
                                     <h4>
                                         <div><label for="registration_form_cin" class="required" id="cin">Cin</label>
                                             {{ form_widget(registrationForm.cin) }}
+                                            <p id="cond" > only 1 account allowed for every cin </p>
                                         </div>
                                     </h4>
                                     </p>
@@ -53,17 +54,17 @@
                                         <div><label for="registration_form_plainPassword" class="required"
                                                     id="password">Password</label>
                                             {{ form_widget(registrationForm.password) }}
-                                             <p id="password-cond" > password must be atleast 6 characters </p>
+                                             <p id="cond" > password must be atleast 6 characters </p>
                                         </div>
                                     </h4>
                                     </p>
 
                                     <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yluiEEqlNRmJpymY0vM6sXjBVDIgfXUfUmlQhJd0CUo" />
                                         <div id="password_widget"> {{ form_rest(registrationForm) }} </div>
-                                        <div id="redirect_login"> <h6 style="color:green;">tu es déja inscris?<a href="{{ path('app_login') }}">connexion &#x2192;</a></h6></div>
+                                        <div id="redirect_login"> <h6 style="color:green">tu es déja inscris?<a href="{{ path('app_login') }}">connexion &#x2192;</a></h6></div>
 
 
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">inscription</button>
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"> inscription </button>
                             </form>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Snippet by <a href="https://bootstrapious.com/snippets" class="font-italic text-muted">
                                             <u>Boostrapious</u></a></p>

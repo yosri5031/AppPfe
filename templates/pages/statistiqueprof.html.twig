@@ -41,11 +41,17 @@
                 margin-left:15%;
                 margin-right:15%;
         }
+        #info{
+                font-size:17px;
+        }
 </style>
 
 <!-- source des questions : 
 https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-evaluation-formative.pdf -->
         <div class="qcm-body" onload="window.print()">
+                <i id="info"> Matière: {{ matiere.name }} </i> <br>
+                <i id="info"> Groupe:  {{ classe.name }} </i> <br>
+                <i id="info"> Période: {{ periode.semestre }}</i>
                 <form method="post" action="">
                         {% for key, val in questions %}
                                 {#                                        {% for nb in nombre_reponses %}#}
@@ -65,8 +71,8 @@ https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-e
                                                                              aria-valuemax="100">{{ v*20 }}%
                                                                         </div>
                                                                 </div>
-                                                                <label style="color:black;" for="{{ qcm.id }}"> nombre de réponses
-                                                                        : {{ nombre_reponses }}</label>
+                                                                <p style="color:black;" for="{{ qcm.id }}"> nombre des étudiants inscris dans le système
+                                                                        : {{ nombre_reponses }}</p>
 
                                                         </div>
                                                 {% endif %}
