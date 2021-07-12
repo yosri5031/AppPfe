@@ -18,33 +18,32 @@
     <!-- welcome -->
 
     <div  class="containerWelcome" id="welcome">
-        <h1>Evaluation.edu</h1>
-        <h2>Make our Education life better ...</h2>
+        <h1 style="color:rgb(255,153,9)">Evaluation.edu</h1>
+        <h2 style="color:#ff9909">Make our Education life better ...</h2>
         <a href="{{path('apropos.index')}}" class="myButton">About Us</a>
     </div>
     <!-- end welcome -->
     <!-- container etudiant - enseignant -->
 <div class="container">
-    <div class="row">
-        <div class="contenant" id="row1">
-            <img src="https://1.bp.blogspot.com/-fM5PVJxTd8A/YNYon3M5fmI/AAAAAAAACIc/CrVsHQo1UrM-u2c-DXBPwJsyv-7IGmR6ACLcBGAsYHQ/s0/student%2Bcontainer.jpg" width="370px" height="300px" alt="studentcontainer">
-            <div class="texte_centrer">
+
+            <img src="https://1.bp.blogspot.com/-zbqhljOllb4/YOyWWJUseII/AAAAAAAACOY/A3266JjPhagBHfAeEVbmWehAuKHqR_TLACLcBGAsYHQ/s0/container-page.jpg" width="1330px" height="300px" alt="studentcontainer">
+
+                <div class="texte_centrer" id="text-étudiant">
                 <h3 class="title"> étudiants</h3>
                 <p class="description">Veiller visiter la<a href="{{ path('app_register') }}" > <b><u>page des enquêtes</u></b> </a>pour évaluer vos cours et l'environnement d'éducation générale dans votre établissement.</p>
 
                 <a href="{{path('app_login')}}"  id="bouton_surveys"><i class="fa fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="contenant" id="row2">
-            <img src="https://1.bp.blogspot.com/-fM5PVJxTd8A/YNYon3M5fmI/AAAAAAAACIc/CrVsHQo1UrM-u2c-DXBPwJsyv-7IGmR6ACLcBGAsYHQ/s0/student%2Bcontainer.jpg" width="370px" height="300px" alt="teachercontainer">
-            <div class="texte_centrer" id="text-teacher">
+                </div>
+
+
+              <div class="texte_centrer" id="text-teacher">
                 <h3 class="title">enseignants</h3>
                 <p class="description">Vous pouvez visiter l'<a href="{{ path('app_login') }}"><b><u>espace des enseignants et chefs de départements</u></b>
                     </a>pour étudier les bilan statistique concernants vos cours dans l'établissement.</p>
+                    <a href="{{path('app_login')}}"  id="bouton_surveys"><i class="fa fa-arrow-right"></i></a>
 
-                <a href="{{path('app_login')}}"  id="bouton_surveys"><i class="fa fa-arrow-right"></i></a>
-            </div>
-        </div>
+                  </div>
+</div>
         <!--End container etudiant - enseignant -->
 
      </div>

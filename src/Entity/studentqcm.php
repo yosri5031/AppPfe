@@ -33,9 +33,10 @@ class studentqcm
     protected $question;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $note;
+    private $note='1';
+
 
     public function getId(): ?int
     {
@@ -91,6 +92,8 @@ class studentqcm
 
         return $this;
     }
+
+
 
 
 }

@@ -68,9 +68,12 @@ class QCMController extends AbstractController
 
     /**
      * @Route("/saveqcm/{id}/{stu}", name="save_qcm")
+     * @param Request $request
+     * @param $id
+     * @param $stu
      * @return Response
      */
-    public function saveqcm(Request $request,$id,$stu): Response
+    public function saveqcm(Request $request, $id, $stu): Response
     {
         $em = $this->getDoctrine()->getManager();
         $data = $request->request->all();
@@ -81,6 +84,7 @@ class QCMController extends AbstractController
                 $qcm->setNote($v[0]);
                 $em->persist($qcm);
                 $em->flush();
+
             }
         }
        return  $this->redirectToRoute('qcm',['id'=>$id,'idstudent'=>$stu]);

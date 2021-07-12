@@ -88,7 +88,8 @@ class AdminPanelController extends AbstractController{
         $matiere = $em->getRepository(Matiere::class)->find($id);
         $notes = $em->getRepository(studentqcm::class)->findBy(['matiere' => $id]);
         $questionss = $em->getRepository(Questionnaire::class)->findAll();
-        $nbr_eleves =count( $em->getRepository(User::class)->findBy(['classe' => $matiere->getClasse()]));
+
+        $nbr_eleves =count( $em->getRepository(studentqcm::class)->findBy(['matiere' => $matiere->getId(),'question'=>$questionss]));
         $classe = $matiere->getClasse();
         $semestre=$matiere->getSemestre();
         $questions=[];$final=[];$qes=[];
@@ -104,7 +105,7 @@ class AdminPanelController extends AbstractController{
             $qes[$val->getSujet()][]= $val;
         }
         foreach ($questions as $key=>$val){
-            $final[$key]= $val/$nbr_eleves;
+            $final[$key]= $val/($nbr_eleves/24);
         }
 
 //        dump($qes,$final,$nbr_eleves,$questions);die();
