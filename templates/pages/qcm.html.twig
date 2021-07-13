@@ -34,8 +34,21 @@
         .rating .star:checked ~ label {
                 color: orange;
         }
+        #exit{
+            margin-left:91%;
+        }
+        #exit-text{
+            font-size:23px;
+            color:blue;
+        }
 </style>
+<div id="exit">
+    <a href="{{ path('app_logout') }}" id="exit-text">
 
+        <img src="https://1.bp.blogspot.com/-FBSLE4k4wEA/YOiJybRPb6I/AAAAAAAACM8/UsRzXHirAtgb954Cti1KHxdkVjSvJeAxwCLcBGAsYHQ/s0/exit.png"
+             width="54px" height="54px"> exit
+    </a>
+</div>
 <!-- source des questions : 
 https://www.reptic.qc.ca/wp-content/uploads/2014/05/2014-05_STFO_questionnaire-evaluation-formative.pdf -->
 <div class="qcm-body">
