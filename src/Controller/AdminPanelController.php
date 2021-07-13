@@ -105,7 +105,7 @@ class AdminPanelController extends AbstractController{
             $qes[$val->getSujet()][]= $val;
         }
         foreach ($questions as $key=>$val){
-            $final[$key]= $val/($nbr_eleves/24);
+            $final[$key]= round(($val/($nbr_eleves/24)),2);
         }
 
 //        dump($qes,$final,$nbr_eleves,$questions);die();
